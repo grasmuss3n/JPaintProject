@@ -35,7 +35,7 @@ public class Main {
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
 
         // - Begin example: remove after you understand it
-
+/*
         graphics2d.setColor(Color.GREEN);
         graphics2d.fillRect(12, 13, 200, 400);
 
@@ -50,6 +50,6 @@ public class Main {
         graphics2d.setColor(Color.BLACK);
         graphics2d.drawRect(7, 8, 210, 410);
 
-        // - End example
+        // - End example*/
     }
 }
