@@ -13,13 +13,13 @@ import org.slf4j.LoggerFactory;
 public class PaintCanvas extends JComponent {
 
     // part of the example below.  Please removed when the example is removed
-    private int paintCount = 0;
-
-    private static final Logger log = LoggerFactory.getLogger(PaintCanvas.class);
-
-    public Graphics2D getGraphics2D() {
-        return (Graphics2D)getGraphics();
-    }
+//    private int paintCount = 0;
+//
+//    private static final Logger log = LoggerFactory.getLogger(PaintCanvas.class);
+//
+//    public Graphics2D getGraphics2D() {
+//        return (Graphics2D)getGraphics();
+//    }
 
     @Override
     /**
@@ -28,7 +28,7 @@ public class PaintCanvas extends JComponent {
      * It you want to force a paint event, call aPaintCanvas.repaint()
      */
     public void paintComponent(Graphics graphics) {
-//        Graphics2D graphics2d = (Graphics2D) graphics;
+        //Graphics2D graphics2d = (Graphics2D) graphics;
 //
 //        // - Begin example: remove after you understand it
 //        paintCount++;
@@ -48,6 +48,6 @@ public class PaintCanvas extends JComponent {
 //        graphics2d.setColor(Color.BLACK);
 //        graphics2d.drawRect(7, 8, 210, 410);
 //
-//        // - End example
+////        // - End example
     }
 }
