@@ -8,6 +8,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import model.ShapeType;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
@@ -30,26 +31,15 @@ public class Main {
         paintCanvas.addMouseListener(mouse);
         controller.setup();
 
+        paintCanvas.pointers(mouse.x1, mouse.y1, mouse.x2, mouse.y2);
+
         Thread.sleep(500);
 
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
 
-        // - Begin example: remove after you understand it
-/*
-        graphics2d.setColor(Color.GREEN);
-        graphics2d.fillRect(12, 13, 200, 400);
 
-        // Outlined rectangle
-        graphics2d.setStroke(new BasicStroke(5));
-        graphics2d.setColor(Color.BLUE);
-        graphics2d.drawRect(12, 13, 200, 400);
 
-        // Selected Shape
-        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
-        graphics2d.setStroke(stroke);
-        graphics2d.setColor(Color.BLACK);
-        graphics2d.drawRect(7, 8, 210, 410);
 
-        // - End example*/
+
     }
 }
