@@ -23,4 +23,9 @@ public class MouseHandler extends MouseAdapter {
   public void mouseReleased(MouseEvent e) {
     log.debug("End " + e.getX() + " " + e.getY());
   }
+
+  public void mouseDragged(MouseEvent e){
+    log.debug("End" + e.getX() + "" + e.getY());
+  }
+
 }
