@@ -26,21 +26,13 @@ public class Main {
 
         MouseHandler mouse = new MouseHandler();
         paintCanvas.addMouseListener(mouse);
+        paintCanvas.addMouseMotionListener(mouse);
         controller.setup();
 
-       paintCanvas.pointers(mouse.x1, mouse.y1, mouse.x2, mouse.y2);
 
         Thread.sleep(500);
 
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
-      paintCanvas.paint(graphics2d);
-
-
-
-
-
-
-
 
     }
 }

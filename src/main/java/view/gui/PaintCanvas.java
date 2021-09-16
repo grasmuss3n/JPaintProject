@@ -18,28 +18,19 @@ import org.slf4j.LoggerFactory;
  */
 public class PaintCanvas extends JComponent {
 
-    private int x1 = 0;
-    private int x2 = 0;
-    private int y1 = 0;
-    private int y2 = 0;
+
 
     public Graphics2D getGraphics2D() {
         return (Graphics2D)getGraphics();
     }
 
-    public void pointers(int a, int b, int x, int y){
-        x1 = a;
-        x2 = x;
-        y1 = b;
-        y2 = y;
-    }
 
    // @Override
-    public void paint(Graphics2D g){
-        super.paint(g);
-        g.fillRect(x1,y1, 200, 300);
-    }
-
+//    public void paint(Graphics2D g){
+//        super.paint(g);
+//        g.fillRect(0,0, 200, 300);
+//    }
+//
 
 
     @Override
@@ -52,7 +43,6 @@ public class PaintCanvas extends JComponent {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
-        //graphics2d.fillRect(x1,y1, 200, 300);
 
     }
 }
