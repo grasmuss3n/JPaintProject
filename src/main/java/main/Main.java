@@ -4,11 +4,8 @@ import controller.EventConnector;
 import controller.EventConnectorImpl;
 import controller.KeyboardInterface;
 import controller.MouseHandler;
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Stroke;
-import model.ShapeType;
+import model.ShapeColor;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
@@ -31,11 +28,15 @@ public class Main {
         paintCanvas.addMouseListener(mouse);
         controller.setup();
 
-        paintCanvas.pointers(mouse.x1, mouse.y1, mouse.x2, mouse.y2);
+       paintCanvas.pointers(mouse.x1, mouse.y1, mouse.x2, mouse.y2);
 
         Thread.sleep(500);
 
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
+      paintCanvas.paint(graphics2d);
+
+
+
 
 
 

@@ -4,6 +4,7 @@ import controller.MouseHandler;
 import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 import java.awt.*;
+import model.ShapeColor;
 import model.ShapeType;
 import model.interfaces.UserChoices;
 import model.persistence.UserChoicesImpl;
@@ -33,6 +34,14 @@ public class PaintCanvas extends JComponent {
         y2 = y;
     }
 
+   // @Override
+    public void paint(Graphics2D g){
+        super.paint(g);
+        g.fillRect(x1,y1, 200, 300);
+    }
+
+
+
     @Override
     /**
      * This is an event handler.  If this function gets called, its time to
@@ -40,8 +49,10 @@ public class PaintCanvas extends JComponent {
      * It you want to force a paint event, call aPaintCanvas.repaint()
      */
     public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
+        //graphics2d.fillRect(x1,y1, 200, 300);
 
     }
 }
