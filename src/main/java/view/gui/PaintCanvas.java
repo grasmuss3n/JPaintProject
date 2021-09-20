@@ -18,20 +18,9 @@ import org.slf4j.LoggerFactory;
  */
 public class PaintCanvas extends JComponent {
 
-
-
     public Graphics2D getGraphics2D() {
         return (Graphics2D)getGraphics();
     }
-
-
-   // @Override
-//    public void paint(Graphics2D g){
-//        super.paint(g);
-//        g.fillRect(0,0, 200, 300);
-//    }
-//
-
 
     @Override
     /**
@@ -40,9 +29,8 @@ public class PaintCanvas extends JComponent {
      * It you want to force a paint event, call aPaintCanvas.repaint()
      */
     public void paintComponent(Graphics graphics) {
-        super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
-
     }
+
 }

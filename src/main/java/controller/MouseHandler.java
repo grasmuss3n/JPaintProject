@@ -16,20 +16,39 @@ public class MouseHandler extends MouseAdapter {
   private static final Logger log = LoggerFactory.getLogger(MouseHandler.class);
 
 
-  @Override
-  public void mousePressed(MouseEvent e) {
-    log.debug("Start " + e.getX() + " " + e.getY());
+  private PaintCanvas paintCanvas;
+  private int x;
+  private int y;
+
+  private Pointer pointer;
+
+
+  public void paintCanvasMouseHandler(PaintCanvas paintCanvas){
+    this.paintCanvas = paintCanvas;
   }
 
   @Override
-  public void mouseReleased(MouseEvent e) {
-    log.debug("End " + e.getX() + " " + e.getY());
+  public void mousePressed(MouseEvent e) {
+    log.debug("Start " + e.getX() + " " + e.getY());
+    x = e.getX();
+    y = e.getY();
+    pointer = new Pointer(x, y);
+
   }
 
   @Override
   public void mouseDragged(MouseEvent e) {
     log.debug("Drag " + e.getX() + " " + e.getY());
+    //pointer.endCoordinates(e.getX(), e.getY());
+
   }
+
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    log.debug("End " + e.getX() + " " + e.getY());
+    pointer.endCoordinates(e.getX(), e.getY());
+  }
+
 
 }
 

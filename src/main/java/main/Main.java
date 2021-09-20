@@ -25,6 +25,7 @@ public class Main {
         keys.setup();
 
         MouseHandler mouse = new MouseHandler();
+        mouse.paintCanvasMouseHandler(paintCanvas);
         paintCanvas.addMouseListener(mouse);
         paintCanvas.addMouseMotionListener(mouse);
         controller.setup();
