@@ -5,8 +5,6 @@ import controller.EventConnectorImpl;
 import controller.KeyboardInterface;
 import controller.MouseHandler;
 import java.awt.Graphics2D;
-import model.ShapeColor;
-import model.persistence.ShapeColorTrans;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
@@ -26,7 +24,8 @@ public class Main {
         KeyboardInterface keys = new KeyboardInterface(paintCanvas, appState);
         keys.setup();
 
-        MouseHandler mouse = new MouseHandler();
+
+        MouseHandler mouse = new MouseHandler(appState);
         mouse.paintCanvasMouseHandler(paintCanvas);
         paintCanvas.addMouseListener(mouse);
         paintCanvas.addMouseMotionListener(mouse);
@@ -38,7 +37,7 @@ public class Main {
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
 
         //Tests
-        ShapeColorTrans s = new ShapeColorTrans(ShapeColor.BLUE);
+        //ShapeColorTrans s = new ShapeColorTrans(ShapeColor.BLUE);
 
     }
 }

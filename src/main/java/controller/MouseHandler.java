@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import model.ShapeMaker;
+import model.ShapeType;
 import model.interfaces.UserChoices;
 import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
@@ -23,6 +25,11 @@ public class MouseHandler extends MouseAdapter {
   private int y;
 
   private Pointer pointer;
+  private UserChoicesImpl appState;
+
+  public MouseHandler(UserChoicesImpl appState){
+    this.appState = appState;
+  }
 
 
   public void paintCanvasMouseHandler(PaintCanvas paintCanvas){
@@ -49,6 +56,7 @@ public class MouseHandler extends MouseAdapter {
   public void mouseReleased(MouseEvent e) {
     log.debug("End " + e.getX() + " " + e.getY());
     pointer.endCoordinates(e.getX(), e.getY());
+    new ShapeMaker(appState, pointer);
   }
 
 
