@@ -1,6 +1,5 @@
 package controller;
 
-import model.persistence.UserChoicesImpl;
 
 public class Pointer{
 
@@ -8,6 +7,7 @@ public class Pointer{
   private int y1 = 0;
   private int x2 = 0;
   private int y2 = 0;
+
 
 
   public Pointer(int x, int y){
@@ -20,6 +20,7 @@ public class Pointer{
     y2 = y;
   }
 
+  //Pointer pointer = new Pointer(100,200);
 
 
 }

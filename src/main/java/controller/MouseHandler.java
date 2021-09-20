@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import model.interfaces.UserChoices;
+import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import view.gui.PaintCanvas;

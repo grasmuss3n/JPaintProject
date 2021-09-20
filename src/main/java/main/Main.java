@@ -6,6 +6,7 @@ import controller.KeyboardInterface;
 import controller.MouseHandler;
 import java.awt.Graphics2D;
 import model.ShapeColor;
+import model.persistence.ShapeColorTrans;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
@@ -15,6 +16,7 @@ import view.interfaces.UiModule;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         PaintCanvas paintCanvas = new PaintCanvas();
         GuiWindow guiWindow = new GuiWindowImpl(paintCanvas);
         UiModule uiModule = new Gui(guiWindow);
@@ -34,6 +36,9 @@ public class Main {
         Thread.sleep(500);
 
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
+
+        //Tests
+        ShapeColorTrans s = new ShapeColorTrans(ShapeColor.BLUE);
 
     }
 }
