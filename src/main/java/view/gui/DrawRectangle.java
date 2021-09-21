@@ -2,6 +2,8 @@ package view.gui;
 
 import controller.Pointer;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import model.ShapeColor;
 import model.ShapeShadingType;
 
@@ -19,8 +21,10 @@ public class DrawRectangle {
     this.shadingType = shadingType;
   }
 
-
-
+  public void paint(Graphics g){
+    Graphics2D g2 = (Graphics2D) g;
+    
+  }
 
 
 }
