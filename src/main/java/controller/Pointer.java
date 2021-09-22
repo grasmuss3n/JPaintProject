@@ -37,11 +37,13 @@ public class Pointer{
   }*/
 
   public int getHeight(){
-    int h = Math.abs(x1-y2);
+    //not right
+    int h = Math.abs(y1-y2);
     return h;
   }
 
   public int getWidth(){
+    //right
     int w = Math.abs(x1-x2);
     return w;
   }

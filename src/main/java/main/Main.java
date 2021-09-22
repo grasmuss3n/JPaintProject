@@ -38,6 +38,7 @@ public class Main {
 
         Thread.sleep(500);
 
+
 /*
         Graphics2D graphics2d = paintCanvas.getGraphics2D();
 

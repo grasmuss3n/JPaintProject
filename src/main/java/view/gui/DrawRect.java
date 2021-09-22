@@ -28,15 +28,19 @@ public class DrawRect implements IShape{
 
     if (stats.getActiveShapeShadingType().equals(ShapeShadingType.FILLED_IN) ||
         stats.getActiveShapeShadingType().equals(ShapeShadingType.OUTLINE_AND_FILLED_IN) ){
+      System.out.println("fill");
       g2.setColor(stats.getActivePrimaryColor());
       g2.fillRect(pointer.getX1(), pointer.getY1(), pointer.getWidth(), pointer.getHeight());
     }
+
     if (stats.getActiveShapeShadingType().equals(ShapeShadingType.OUTLINE) ||
         stats.getActiveShapeShadingType().equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)){
+      System.out.println("outline");
       g2.setStroke(new BasicStroke(5));
       g2.setColor(stats.getActiveSecondaryColor());
       g2.drawRect(pointer.getX1(), pointer.getY1(), pointer.getWidth(), pointer.getHeight());
     }
+
     Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     g2.setStroke(stroke);
     g2.setColor(Color.BLACK);

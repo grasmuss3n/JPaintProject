@@ -13,7 +13,7 @@ public class ShapeFactory {
     for(ShapeStat stat: shapeList){
       switch (stat.getActiveShapeType()){
         case RECTANGLE:
-          System.out.println("rect");
+          //System.out.println("rect");
           shape = new DrawRect(stat);
         case ELLIPSE:
           shape = new DrawRect(stat);
@@ -24,7 +24,7 @@ public class ShapeFactory {
           throw new IllegalStateException("Unexpected value: " + stat.getActiveShapeType());
       }
       shape.paint(paintCanvas.getGraphics());
-      paintCanvas.repaint();
+
     }
   }
 
