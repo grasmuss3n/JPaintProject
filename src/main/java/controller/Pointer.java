@@ -1,9 +1,6 @@
 package controller;
 
 
-import model.ShapeMaker;
-import model.persistence.UserChoicesImpl;
-
 public class Pointer{
 
 
@@ -13,7 +10,7 @@ public class Pointer{
   private int y2 = 0;
 
 
-  public Pointer(int x, int y){
+  public void startCoordinates(int x, int y){
     x1 = x;
     y1 = y;
   }
@@ -27,15 +24,28 @@ public class Pointer{
     return x1;
   }
 
-  public int getX2() {
+/*  public int getX2() {
     return x2;
-  }
+  }*/
 
   public int getY1() {
     return y1;
   }
 
-  public void setY2(int y2) {
-    this.y2 = y2;
+/*  public int getY2() {
+    return y2;
+  }*/
+
+  public int getHeight(){
+    int h = Math.abs(x1-y2);
+    return h;
   }
+
+  public int getWidth(){
+    int w = Math.abs(x1-x2);
+    return w;
+  }
+
+
+
 }

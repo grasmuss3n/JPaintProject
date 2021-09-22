@@ -1,11 +1,10 @@
 package controller;
 
+import model.OnDraw;
+import controller.interfaces.iCommand;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import model.ShapeMaker;
-import model.ShapeType;
-import model.interfaces.UserChoices;
 import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,42 +20,45 @@ public class MouseHandler extends MouseAdapter {
 
 
   private PaintCanvas paintCanvas;
-  private int x;
-  private int y;
 
-  private Pointer pointer;
+  private Pointer pointer = new Pointer();
+
   private UserChoicesImpl appState;
 
-  public MouseHandler(UserChoicesImpl appState){
-    this.appState = appState;
-  }
 
-
-  public void paintCanvasMouseHandler(PaintCanvas paintCanvas){
+  public void paintCanvasMouseHandler(PaintCanvas paintCanvas, UserChoicesImpl appState){
     this.paintCanvas = paintCanvas;
+    this.appState = appState;
   }
 
   @Override
   public void mousePressed(MouseEvent e) {
     log.debug("Start " + e.getX() + " " + e.getY());
-    x = e.getX();
-    y = e.getY();
-    pointer = new Pointer(x, y);
+    pointer.startCoordinates(e.getX(), e.getY());
 
   }
 
-  @Override
-  public void mouseDragged(MouseEvent e) {
-    log.debug("Drag " + e.getX() + " " + e.getY());
-    //pointer.endCoordinates(e.getX(), e.getY());
 
-  }
 
   @Override
   public void mouseReleased(MouseEvent e) {
     log.debug("End " + e.getX() + " " + e.getY());
     pointer.endCoordinates(e.getX(), e.getY());
-    new ShapeMaker(appState, pointer);
+
+    iCommand command;
+    switch (appState.getActiveMouseMode()){
+      case DRAW:
+         command = new OnDraw(pointer, appState, paintCanvas);
+         command.run();
+      case SELECT:
+        break;
+      case MOVE:
+        break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + appState.getActiveMouseMode());
+    }
+
+
   }
 
 

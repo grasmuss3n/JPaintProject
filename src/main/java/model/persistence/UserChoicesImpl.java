@@ -22,6 +22,9 @@ public class UserChoicesImpl implements UserChoices {
     private ShapeShadingType activeShapeShadingType;
     private MouseMode activeMouseMode;
 
+
+
+
     public UserChoicesImpl(UiModule uiModule) {
         this.uiModule = uiModule;
         this.dialogProvider = new DialogProviderImpl(this);
