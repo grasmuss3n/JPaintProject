@@ -13,14 +13,14 @@ public class DrawRect implements IShape{
   public void fill(Graphics g, Pointer pointer, Color c) {
     //Graphics2D g2 = (Graphics2D) g;
     g.setColor(c);
-    g.fillRect(pointer.getX1(), pointer.getY1(), pointer.getWidth(), pointer.getHeight());
+    g.fillRect(pointer.getX1()+7, pointer.getY1()+7, pointer.getWidth()-15, pointer.getHeight()-15);
   }
 
   @Override
   public void outline(Graphics g, Pointer pointer, Color c) {
     Graphics2D g2 = (Graphics2D) g;
-    g2.setStroke(new BasicStroke(5));
+    g2.setStroke(new BasicStroke(8));
     g.setColor(c);
-    g.drawRect(pointer.getX1()-1, pointer.getY1()-1, pointer.getWidth()+2, pointer.getHeight()+2);
+    g.drawRect(pointer.getX1()+6, pointer.getY1()+6, pointer.getWidth()-10, pointer.getHeight()-10);
   }
 }

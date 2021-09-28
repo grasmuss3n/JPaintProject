@@ -13,6 +13,6 @@ public class DrawDimensions {
     Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     g2.setStroke(stroke);
     g.setColor(Color.BLACK);
-    g.drawRect(pointer.getX1()-5, pointer.getY1()-5, pointer.getWidth()+10, pointer.getHeight()+10);
+    g.drawRect(pointer.getX1(), pointer.getY1(), pointer.getWidth(), pointer.getHeight());
   }
 }
