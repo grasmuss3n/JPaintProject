@@ -30,12 +30,10 @@ public class PaintCanvas extends JComponent {
      */
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-
         Graphics2D graphics2d = (Graphics2D) graphics;
 
         for(ShapeStat shape: ShapeList.getShapeList()){
-            DrawShape.drawShape(graphics2d, shape);
-
+            DrawShape.drawShape(graphics, shape);
         }
     }
 

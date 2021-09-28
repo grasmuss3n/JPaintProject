@@ -29,7 +29,6 @@ public class ShapeList {
   }
 
   public static ArrayList<ShapeStat> getShapeList(){
-    System.out.println(shapeList);
     return shapeList;
   }
 

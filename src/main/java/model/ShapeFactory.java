@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import model.persistence.UserChoicesImpl;
 import view.gui.DrawEllipse;
 import view.gui.DrawRect;
-import view.gui.DrawShape;
-import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
-public class ShapeFactory {
+public class ShapeFactory{
 
 
-  public IShape createShape(UserChoicesImpl stat, PaintCanvas paintCanvas){
+  public IShape createShape(UserChoicesImpl stat){
     IShape shape;
     if(stat.getActiveShapeType().equals(ShapeType.RECTANGLE)){
       shape = new DrawRect();
@@ -25,6 +23,5 @@ public class ShapeFactory {
 
     return shape;
   }
-
 
 }

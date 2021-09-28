@@ -1,6 +1,7 @@
 package view.gui;
 
 import controller.Pointer;
+import controller.command.ShapeList;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,9 +11,11 @@ import view.interfaces.IShape;
 
 public class DrawShape {
 
-  public static void drawShape(Graphics2D g2, ShapeStat stat){
+  public static void drawShape(Graphics g, ShapeStat stat){
     IShape shape = stat.getShape();
     Pointer pointer = stat.getPointer();
+
+    Graphics2D g2 = (Graphics2D) g;
 
     ShapeShadingType shapeShadingType = stat.getActiveShapeShadingType();
     Color primaryColor = stat.getActivePrimaryColor();
@@ -30,7 +33,5 @@ public class DrawShape {
 
     DrawDimensions.drawDimensions(pointer,g2);
   }
-
-
 
 }
