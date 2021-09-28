@@ -1,5 +1,6 @@
 package controller;
 
+import controller.interfaces.Undoable;
 import model.interfaces.UserChoices;
 import view.EventName;
 import view.interfaces.UiModule;
@@ -27,6 +28,8 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.CHOOSE_SECONDARY_COLOR, () -> userChoices.setActiveSecondaryColor());
         uiModule.addEvent(EventName.CHOOSE_SHADING_TYPE, () -> userChoices.setActiveShadingType());
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> userChoices.setActiveStartAndEndPointMode());
+        uiModule.addEvent(EventName.UNDO, () -> new UndoRedoCommand().undo());
+        uiModule.addEvent(EventName.REDO, () -> new UndoRedoCommand().redo());
     }
 
 

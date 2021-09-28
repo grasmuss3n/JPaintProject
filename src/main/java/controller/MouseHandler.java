@@ -1,5 +1,6 @@
 package controller;
 
+import controller.command.CommandHistory;
 import model.OnDraw;
 import controller.interfaces.iCommand;
 import java.awt.event.MouseAdapter;
@@ -45,11 +46,10 @@ public class MouseHandler extends MouseAdapter {
     log.debug("End " + e.getX() + " " + e.getY());
     pointer.endCoordinates(e.getX(), e.getY());
 
-    iCommand command;
+    iCommand command = null;
     switch (appState.getActiveMouseMode()){
       case DRAW:
          command = new OnDraw(pointer, appState, paintCanvas);
-         command.run();
       case SELECT:
         break;
       case MOVE:
@@ -57,6 +57,7 @@ public class MouseHandler extends MouseAdapter {
       default:
         throw new IllegalStateException("Unexpected value: " + appState.getActiveMouseMode());
     }
+    command.run();
 
 
   }

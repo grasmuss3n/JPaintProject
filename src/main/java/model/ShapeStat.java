@@ -2,15 +2,20 @@ package model;
 
 import controller.Pointer;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import model.persistence.UserChoicesImpl;
+import view.interfaces.IShape;
 
 public class ShapeStat{
   private Pointer pointer;
   private UserChoicesImpl appState;
+  private IShape shape;
 
-  public ShapeStat(Pointer pointer,UserChoicesImpl appState){
+  public ShapeStat(Pointer pointer,UserChoicesImpl appState, IShape shape){
     this.pointer = pointer;
     this.appState = appState;
+    this.shape = shape;
   }
 
   public Pointer getPointer(){
@@ -22,9 +27,10 @@ public class ShapeStat{
     pointer.endCoordinates(x,y);
   }
 
+  public IShape getShape(){return shape;}
+
 
   public ShapeType getActiveShapeType() {
-
     return appState.getActiveShapeType();
   }
 

@@ -3,9 +3,9 @@ package model;
 import controller.Pointer;
 import controller.command.ShapeList;
 import controller.interfaces.iCommand;
-import java.util.ArrayList;
 import model.persistence.UserChoicesImpl;
 import view.gui.PaintCanvas;
+import view.interfaces.IShape;
 
 
 public class OnDraw implements iCommand {
@@ -23,9 +23,9 @@ public class OnDraw implements iCommand {
 
   @Override
   public void run() {
-    ArrayList<ShapeStat> shapeList = ShapeList.add(pointer, appState);
     ShapeFactory s = new ShapeFactory();
-    s.createShape(shapeList, paintCanvas);
-
+    IShape shape = s.createShape(appState, paintCanvas);
+    ShapeList.addSL(pointer, appState, shape);
+    paintCanvas.repaint();
   }
 }

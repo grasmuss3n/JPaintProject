@@ -1,5 +1,8 @@
 package view.gui;
 
+import controller.command.ShapeList;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -7,6 +10,9 @@ import java.util.NoSuchElementException;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import javax.swing.plaf.basic.BasicTreeUI.ComponentHandler;
+import model.ShapeFactory;
+import model.ShapeStat;
 import view.interfaces.GuiWindow;
 import view.EventName;
 
@@ -31,6 +37,9 @@ public class GuiWindowImpl extends JFrame implements GuiWindow {
     window.add(canvas, BorderLayout.CENTER);
     validate();
   }
+
+
+
 
   @Override
   public JButton getButton(EventName eventName) {

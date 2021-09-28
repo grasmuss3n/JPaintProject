@@ -1,7 +1,10 @@
 package view.gui;
 
+import controller.command.ShapeList;
 import javax.swing.JComponent;
 import java.awt.*;
+import model.ShapeStat;
+import view.interfaces.IShape;
 
 /**
  * PaintCanvas is responsible for responding to the graphics system when it
@@ -26,9 +29,14 @@ public class PaintCanvas extends JComponent {
      * It you want to force a paint event, call aPaintCanvas.repaint()
      */
     public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
 
         Graphics2D graphics2d = (Graphics2D) graphics;
 
+        for(ShapeStat shape: ShapeList.getShapeList()){
+            DrawShape.drawShape(graphics2d, shape);
+
+        }
     }
 
 

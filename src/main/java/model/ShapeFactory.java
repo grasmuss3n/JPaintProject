@@ -1,31 +1,29 @@
 package model;
 
 import java.util.ArrayList;
+import model.persistence.UserChoicesImpl;
+import view.gui.DrawEllipse;
 import view.gui.DrawRect;
+import view.gui.DrawShape;
 import view.gui.PaintCanvas;
 import view.interfaces.IShape;
 
 public class ShapeFactory {
 
 
-  public void createShape(ArrayList<ShapeStat> shapeList, PaintCanvas paintCanvas){
+  public IShape createShape(UserChoicesImpl stat, PaintCanvas paintCanvas){
     IShape shape;
-    for(ShapeStat stat: shapeList){
-      switch (stat.getActiveShapeType()){
-        case RECTANGLE:
-          //System.out.println("rect");
-          shape = new DrawRect(stat);
-        case ELLIPSE:
-          shape = new DrawRect(stat);
-        case TRIANGLE:
-          shape = new DrawRect(stat);
-          break;
-        default:
-          throw new IllegalStateException("Unexpected value: " + stat.getActiveShapeType());
-      }
-      shape.paint(paintCanvas.getGraphics());
-
+    if(stat.getActiveShapeType().equals(ShapeType.RECTANGLE)){
+      shape = new DrawRect();
     }
+    else if(stat.getActiveShapeType().equals(ShapeType.ELLIPSE)){
+      shape = new DrawRect();
+    }
+    else{
+      shape = new DrawRect();
+    }
+
+    return shape;
   }
 
 
