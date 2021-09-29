@@ -31,6 +31,8 @@ public class OnDraw implements iCommand, Undoable {
     ShapeFactory s = new ShapeFactory();
     IShape shape = s.createShape(appState);
     IShapeStat shapeStat = new ShapeStat(pointer, appState, shape);
+
+
     ShapeList.addSL(shapeStat);
 
 

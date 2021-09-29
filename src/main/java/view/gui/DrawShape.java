@@ -17,6 +17,7 @@ public class DrawShape implements ShapeDraw{
   public void paint(Graphics2D graphics2D) {
 
     for (IShapeStat shapeStat : ShapeList.getShapeListStat()) {
+      //System.out.println(shapeStat.getActivePrimaryColor());
       IShape shape = shapeStat.getShape();
       Pointer pointer = shapeStat.getPointer();
 

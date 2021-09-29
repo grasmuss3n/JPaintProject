@@ -8,13 +8,23 @@ import view.interfaces.IShapeStat;
 
 public class ShapeStat implements IShapeStat {
   private Pointer pointer;
-  private UserChoicesImpl appState;
   private IShape shape;
+
+  private Color primaryColor;
+  private Color secondaryColor;
+
+  private ShapeType shapeType;
+  private ShapeShadingType shapeShadingType;
 
   public ShapeStat(Pointer pointer,UserChoicesImpl appState, IShape shape){
     this.pointer = pointer;
-    this.appState = appState;
     this.shape = shape;
+
+    primaryColor = appState.getActivePrimaryColor().getColor();
+    secondaryColor = appState.getActiveSecondaryColor().getColor();
+
+    shapeType = appState.getActiveShapeType();
+    shapeShadingType = appState.getActiveShapeShadingType();
   }
 
   @Override
@@ -33,25 +43,25 @@ public class ShapeStat implements IShapeStat {
 
   @Override
   public ShapeType getActiveShapeType() {
-    return appState.getActiveShapeType();
+    return shapeType;
   }
 
 
   @Override
   public Color getActivePrimaryColor() {
 
-    return appState.getActivePrimaryColor().getColor();
+    return primaryColor;
   }
 
   @Override
   public Color getActiveSecondaryColor() {
 
-    return appState.getActiveSecondaryColor().getColor();
+    return secondaryColor;
   }
 
   @Override
   public ShapeShadingType getActiveShapeShadingType() {
-    return appState.getActiveShapeShadingType();
+    return shapeShadingType;
   }
 
 
