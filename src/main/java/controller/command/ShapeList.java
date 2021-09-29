@@ -24,8 +24,9 @@ public class ShapeList {
   public static boolean returnToSL(){
     boolean result = !removedShapesList.isEmpty();
     if(result){
-      shapeListStat.add(removedShapesList.get(shapeListStat.size()-1));
-      removedShapesList.remove(shapeListStat.size()-1);
+      int last = removedShapesList.size()-1;
+      shapeListStat.add(removedShapesList.remove(last));
+
     }
     return result;
   }

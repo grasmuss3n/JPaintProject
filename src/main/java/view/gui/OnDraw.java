@@ -49,6 +49,7 @@ public class OnDraw implements EventCallback, Undoable {
     if(!result){
       System.out.println("Nothing to undo");
     }
+    paintCanvas.repaint();
   }
 
   @Override
@@ -57,5 +58,6 @@ public class OnDraw implements EventCallback, Undoable {
     if(!result){
       System.out.println("Nothing to redo");
     }
+    paintCanvas.repaint();
   }
 }
