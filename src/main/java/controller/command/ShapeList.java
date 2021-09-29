@@ -1,6 +1,7 @@
 package controller.command;
 
 import controller.Pointer;
+import controller.interfaces.Undoable;
 import java.util.ArrayList;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
@@ -31,6 +32,4 @@ public class ShapeList {
   public static ArrayList<ShapeStat> getShapeList(){
     return shapeList;
   }
-
-
 }

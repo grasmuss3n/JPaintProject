@@ -4,7 +4,6 @@ import controller.Pointer;
 import controller.command.ShapeList;
 import controller.interfaces.ShapeDraw;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import model.ShapeShadingType;
 import model.ShapeStat;
