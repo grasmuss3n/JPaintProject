@@ -32,12 +32,13 @@ public class PaintCanvas extends JComponent {
      * It you want to force a paint event, call aPaintCanvas.repaint()
      */
     public void paintComponent(Graphics graphics) {
-        super.paintComponent(graphics);
-        Graphics2D graphics2d = (Graphics2D) graphics;
 
-        for(ShapeDraw shapeDraw : ShapeList.getShapeList()){
-          shapeDraw.paint(graphics2d);
-        }
+      super.paintComponent(graphics);
+      Graphics2D graphics2d = (Graphics2D) graphics;
+
+      DrawShape drawShape = new DrawShape();
+      drawShape.paint(graphics2d);
+
 
     }
 

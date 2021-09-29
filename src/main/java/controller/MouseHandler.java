@@ -22,7 +22,7 @@ public class MouseHandler extends MouseAdapter {
 
   private PaintCanvas paintCanvas;
 
-  private Pointer pointer = new Pointer();
+  private Pointer pointer;
 
   private UserChoicesImpl appState;
 
@@ -35,6 +35,7 @@ public class MouseHandler extends MouseAdapter {
   @Override
   public void mousePressed(MouseEvent e) {
     log.debug("Start " + e.getX() + " " + e.getY());
+    pointer = new Pointer();
     pointer.startCoordinates(e.getX(), e.getY());
 
   }

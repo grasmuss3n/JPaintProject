@@ -35,10 +35,6 @@ public class DrawShape implements ShapeDraw{
       }
 
       shape.draw(graphics2D, pointer);
-
-      ShapeList.add(this);
-
-
     }
   }
 

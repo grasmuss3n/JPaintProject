@@ -37,6 +37,7 @@ public class OnDraw implements iCommand, Undoable {
     DrawShape d = new DrawShape();
     d.paint(paintCanvas.getGraphics2D());
 
+
     CommandHistory.add(this);
 
   }
