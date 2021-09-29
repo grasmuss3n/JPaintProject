@@ -1,10 +1,12 @@
 package view.gui;
 
 import controller.command.ShapeList;
+import controller.interfaces.ShapeDraw;
 import javax.swing.JComponent;
 import java.awt.*;
 import model.ShapeStat;
 import view.interfaces.IShape;
+import view.interfaces.IShapeStat;
 
 /**
  * PaintCanvas is responsible for responding to the graphics system when it
@@ -21,11 +23,7 @@ public class PaintCanvas extends JComponent {
     }
 
 
-    @Override
-    public void paint(Graphics graphics){
-        DrawShape drawShape = new DrawShape();
-        drawShape.draw((Graphics2D) graphics);
-    }
+
 
     @Override
     /**
@@ -37,21 +35,9 @@ public class PaintCanvas extends JComponent {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
-        paint(graphics);
-
-/*
-        DrawShape s = new DrawShape();
-        s.setGraphics(graphics);
-        //this only draws the last one.
-        for (ShapeStat shapeStat : ShapeList.getShapeList()) {
-            s.drawShape(shapeStat);
+        for(ShapeDraw shapeDraw: ShapeList.getShapeList()){
+          shapeDraw.paint(graphics2d);
         }
-*/
-
-
-        //same results as for loop
-        //DrawExecution.dE(graphics);
-
 
     }
 

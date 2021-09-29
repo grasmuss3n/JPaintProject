@@ -1,13 +1,11 @@
 package model;
 
-import java.util.ArrayList;
 import model.persistence.UserChoicesImpl;
 import view.gui.DrawEllipse;
 import view.gui.DrawRect;
 import view.interfaces.IShape;
 
 public class ShapeFactory{
-
 
   public IShape createShape(UserChoicesImpl stat){
     IShape shape;

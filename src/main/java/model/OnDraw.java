@@ -6,8 +6,10 @@ import controller.command.ShapeList;
 import controller.interfaces.Undoable;
 import controller.interfaces.iCommand;
 import model.persistence.UserChoicesImpl;
+import view.gui.DrawShape;
 import view.gui.PaintCanvas;
 import view.interfaces.IShape;
+import view.interfaces.IShapeStat;
 
 
 public class OnDraw implements iCommand, Undoable {
@@ -25,23 +27,30 @@ public class OnDraw implements iCommand, Undoable {
 
   @Override
   public void run() {
+
     ShapeFactory s = new ShapeFactory();
     IShape shape = s.createShape(appState);
-    ShapeList.addSL(pointer, appState, shape);
+    IShapeStat shapeStat = new ShapeStat(pointer, appState, shape);
+    ShapeList.addSL(shapeStat);
+
+
+    DrawShape d = new DrawShape();
+    d.paint(paintCanvas.getGraphics2D());
+
     CommandHistory.add(this);
-    paintCanvas.paint(paintCanvas.getGraphics());
+
+
+    paintCanvas.paintComponent(paintCanvas.getGraphics());
 
   }
 
   @Override
   public void undo() {
-    CommandHistory.undo();
     ShapeList.removeFromSL();
   }
 
   @Override
   public void redo() {
-    CommandHistory.redo();
     ShapeList.returnToSL();
   }
 }

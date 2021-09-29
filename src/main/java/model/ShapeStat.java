@@ -4,8 +4,9 @@ import controller.Pointer;
 import java.awt.Color;
 import model.persistence.UserChoicesImpl;
 import view.interfaces.IShape;
+import view.interfaces.IShapeStat;
 
-public class ShapeStat{
+public class ShapeStat implements IShapeStat {
   private Pointer pointer;
   private UserChoicesImpl appState;
   private IShape shape;
@@ -16,6 +17,7 @@ public class ShapeStat{
     this.shape = shape;
   }
 
+  @Override
   public Pointer getPointer(){
     return pointer;
   }
@@ -25,24 +27,29 @@ public class ShapeStat{
     pointer.endCoordinates(x,y);
   }
 
+  @Override
   public IShape getShape(){return shape;}
 
 
+  @Override
   public ShapeType getActiveShapeType() {
     return appState.getActiveShapeType();
   }
 
+
+  @Override
   public Color getActivePrimaryColor() {
 
     return appState.getActivePrimaryColor().getColor();
   }
 
+  @Override
   public Color getActiveSecondaryColor() {
 
     return appState.getActiveSecondaryColor().getColor();
   }
 
-
+  @Override
   public ShapeShadingType getActiveShapeShadingType() {
     return appState.getActiveShapeShadingType();
   }

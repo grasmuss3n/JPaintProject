@@ -18,7 +18,7 @@ public class DrawDimensions implements ShapeDraw {
   }
 
   @Override
-  public void draw(Graphics2D graphics2D) {
+  public void paint(Graphics2D graphics2D) {
     Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
