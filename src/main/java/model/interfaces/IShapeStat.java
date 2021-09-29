@@ -1,10 +1,10 @@
-package view.interfaces;
+package model.interfaces;
 
-import controller.Pointer;
+import model.Pointer;
 import java.awt.Color;
-import java.awt.Graphics;
 import model.ShapeShadingType;
 import model.ShapeType;
+import model.interfaces.IShape;
 
 public interface IShapeStat {
   Pointer getPointer();

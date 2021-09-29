@@ -1,12 +1,7 @@
 package view.gui;
 
-import controller.command.ShapeList;
-import controller.interfaces.ShapeDraw;
 import javax.swing.JComponent;
 import java.awt.*;
-import model.ShapeStat;
-import view.interfaces.IShape;
-import view.interfaces.IShapeStat;
 
 /**
  * PaintCanvas is responsible for responding to the graphics system when it

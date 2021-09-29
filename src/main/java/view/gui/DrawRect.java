@@ -1,12 +1,12 @@
 package view.gui;
 
-import controller.Pointer;
+import model.Pointer;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
-import view.interfaces.IShape;
+import model.interfaces.IShape;
 
 public class DrawRect implements IShape{
 

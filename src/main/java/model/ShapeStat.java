@@ -1,10 +1,9 @@
 package model;
 
-import controller.Pointer;
 import java.awt.Color;
 import model.persistence.UserChoicesImpl;
-import view.interfaces.IShape;
-import view.interfaces.IShapeStat;
+import model.interfaces.IShape;
+import model.interfaces.IShapeStat;
 
 public class ShapeStat implements IShapeStat {
   private Pointer pointer;

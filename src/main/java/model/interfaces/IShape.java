@@ -1,6 +1,6 @@
-package view.interfaces;
+package model.interfaces;
 
-import controller.Pointer;
+import model.Pointer;
 import java.awt.Color;
 import java.awt.Graphics;
 

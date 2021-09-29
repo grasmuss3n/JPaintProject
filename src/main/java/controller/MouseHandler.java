@@ -1,11 +1,11 @@
 package controller;
 
-import controller.command.CommandHistory;
-import model.OnDraw;
 import controller.interfaces.iCommand;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import view.gui.OnDraw;
+import model.Pointer;
 import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

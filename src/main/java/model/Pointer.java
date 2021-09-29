@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 
 public class Pointer{
@@ -48,13 +48,11 @@ public class Pointer{
   }
 
   public int getHeight(){
-    int h = Math.abs(y1-y2);
-    return h;
+    return Math.abs(y1-y2);
   }
 
   public int getWidth(){
-    int w = Math.abs(x1-x2);
-    return w;
+    return Math.abs(x1-x2);
   }
 
 

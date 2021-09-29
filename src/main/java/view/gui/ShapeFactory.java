@@ -1,9 +1,8 @@
-package model;
+package view.gui;
 
+import model.ShapeType;
 import model.persistence.UserChoicesImpl;
-import view.gui.DrawEllipse;
-import view.gui.DrawRect;
-import view.interfaces.IShape;
+import model.interfaces.IShape;
 
 public class ShapeFactory{
 

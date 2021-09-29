@@ -1,15 +1,14 @@
-package model;
+package view.gui;
 
-import controller.Pointer;
 import controller.command.CommandHistory;
 import controller.command.ShapeList;
 import controller.interfaces.Undoable;
 import controller.interfaces.iCommand;
+import model.Pointer;
+import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
-import view.gui.DrawShape;
-import view.gui.PaintCanvas;
-import view.interfaces.IShape;
-import view.interfaces.IShapeStat;
+import model.interfaces.IShape;
+import model.interfaces.IShapeStat;
 
 
 public class OnDraw implements iCommand, Undoable {
@@ -39,18 +38,23 @@ public class OnDraw implements iCommand, Undoable {
     DrawShape d = new DrawShape();
     d.paint(paintCanvas.getGraphics2D());
 
-
     CommandHistory.add(this);
 
   }
 
   @Override
   public void undo() {
-    ShapeList.removeFromSL();
+    boolean result = ShapeList.removeFromSL();
+    if(!result){
+      new Exception("Nothing to undo");
+    }
   }
 
   @Override
-  public void redo() {
-    ShapeList.returnToSL();
+  public void redo(){
+    boolean result = ShapeList.returnToSL();
+    if(!result){
+      new Exception("Nothing to redo");
+    }
   }
 }

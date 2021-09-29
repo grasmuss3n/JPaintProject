@@ -1,16 +1,13 @@
 package view.gui;
 
-import controller.Pointer;
-import controller.command.CommandHistory;
+import model.Pointer;
 import controller.command.ShapeList;
 import controller.interfaces.ShapeDraw;
-import controller.interfaces.Undoable;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import model.ShapeShadingType;
-import model.ShapeStat;
-import view.interfaces.IShape;
-import view.interfaces.IShapeStat;
+import model.interfaces.IShape;
+import model.interfaces.IShapeStat;
 
 public class DrawShape implements ShapeDraw{
 
