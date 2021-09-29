@@ -1,17 +1,24 @@
 package main;
 
+import static model.ShapeColor.MAGENTA;
+
 import controller.EventConnector;
 import controller.EventConnectorImpl;
 import controller.KeyboardInterface;
 import controller.MouseHandler;
+import controller.command.ShapeList;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import model.Pointer;
+import model.ShapeColor;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
+import view.gui.OnDraw;
 import view.gui.PaintCanvas;
+import view.interfaces.EventCallback;
 import view.interfaces.GuiWindow;
 import view.interfaces.UiModule;
 
@@ -33,6 +40,32 @@ public class Main {
         mouse.paintCanvasMouseHandler(paintCanvas, appState);
         paintCanvas.addMouseListener(mouse);
         controller.setup();
+
+
+
+        //Test Confirming that a shape will be created when onDraw is run.
+/*
+
+        Pointer pointer = new Pointer();
+        pointer.startCoordinates(105, 50);
+        pointer.endCoordinates(503, 190);
+
+        //Size test
+        int height = pointer.getHeight();
+        int width = pointer.getWidth();
+        System.out.println(height + ", " + width);
+
+        EventCallback command = new OnDraw(pointer, appState, paintCanvas);
+        command.run();
+
+        //Test to see if the command.run lead to the shape being saved.
+        System.out.println(ShapeList.getShapeListStat());
+
+*/
+
+        //End of tests on main
+
+
 
 
 

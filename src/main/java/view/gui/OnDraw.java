@@ -31,11 +31,7 @@ public class OnDraw implements EventCallback, Undoable {
     IShape shape = s.createShape(appState);
     IShapeStat shapeStat = new ShapeStat(pointer, appState, shape);
 
-
     ShapeList.addSL(shapeStat);
-
-    //DrawShape d = new DrawShape();
-    //d.paint(paintCanvas.getGraphics2D());
 
     CommandHistory.add(this);
 
