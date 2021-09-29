@@ -3,15 +3,15 @@ package view.gui;
 import controller.command.CommandHistory;
 import controller.command.ShapeList;
 import controller.interfaces.Undoable;
-import controller.interfaces.iCommand;
 import model.Pointer;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
 import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
+import view.interfaces.EventCallback;
 
 
-public class OnDraw implements iCommand, Undoable {
+public class OnDraw implements EventCallback, Undoable {
 
   private Pointer pointer;
   private UserChoicesImpl appState;

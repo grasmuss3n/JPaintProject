@@ -1,6 +1,5 @@
 package controller;
 
-import controller.interfaces.iCommand;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -10,6 +9,7 @@ import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import view.gui.PaintCanvas;
+import view.interfaces.EventCallback;
 
 /**
  * MouseHandler is responsible for propagating mouse coordinates into our application
@@ -47,7 +47,7 @@ public class MouseHandler extends MouseAdapter {
     log.debug("End " + e.getX() + " " + e.getY());
     pointer.endCoordinates(e.getX(), e.getY());
 
-    iCommand command = null;
+    EventCallback command = null;
     switch (appState.getActiveMouseMode()){
       case DRAW:
          command = new OnDraw(pointer, appState, paintCanvas);
