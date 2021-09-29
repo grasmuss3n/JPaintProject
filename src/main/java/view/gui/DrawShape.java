@@ -2,6 +2,7 @@ package view.gui;
 
 import controller.Pointer;
 import controller.command.ShapeList;
+import controller.interfaces.ShapeDraw;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,29 +10,32 @@ import model.ShapeShadingType;
 import model.ShapeStat;
 import view.interfaces.IShape;
 
-public class DrawShape {
+public class DrawShape implements ShapeDraw {
 
-  public static void drawShape(Graphics g, ShapeStat stat){
-    IShape shape = stat.getShape();
-    Pointer pointer = stat.getPointer();
+  @Override
+  public void draw(Graphics2D graphics2D) {
 
-    Graphics2D g2 = (Graphics2D) g;
+    for(ShapeStat shapeStat: ShapeList.getShapeList()){
+      DrawDimensions drawDimensions = new DrawDimensions(shapeStat);
+      IShape shape = shapeStat.getShape();
+      Pointer pointer = shapeStat.getPointer();
 
-    ShapeShadingType shapeShadingType = stat.getActiveShapeShadingType();
-    Color primaryColor = stat.getActivePrimaryColor();
-    Color secondaryColor = stat.getActiveSecondaryColor();
+      ShapeShadingType shapeShadingType = shapeStat.getActiveShapeShadingType();
+      Color primaryColor = shapeStat.getActivePrimaryColor();
+      Color secondaryColor = shapeStat.getActiveSecondaryColor();
 
-    if(shapeShadingType.equals(ShapeShadingType.FILLED_IN)||
-    shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)){
-      shape.fill(g2, pointer, primaryColor);
+      if(shapeShadingType.equals(ShapeShadingType.FILLED_IN)||
+          shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)){
+        shape.fill(graphics2D, pointer, primaryColor);
+      }
+
+      if(shapeShadingType.equals(ShapeShadingType.OUTLINE) ||
+          shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)){
+        shape.outline(graphics2D, pointer, secondaryColor);
+      }
+
+      drawDimensions.draw(graphics2D);
     }
 
-    if(shapeShadingType.equals(ShapeShadingType.OUTLINE) ||
-    shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)){
-      shape.outline(g2, pointer, secondaryColor);
-    }
-
-    DrawDimensions.drawDimensions(pointer,g2);
   }
-
 }

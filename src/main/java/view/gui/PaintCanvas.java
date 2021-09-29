@@ -21,6 +21,11 @@ public class PaintCanvas extends JComponent {
     }
 
 
+    @Override
+    public void paint(Graphics graphics){
+        DrawShape drawShape = new DrawShape();
+        drawShape.draw((Graphics2D) graphics);
+    }
 
     @Override
     /**
@@ -32,13 +37,22 @@ public class PaintCanvas extends JComponent {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
+        paint(graphics);
+
+/*
+        DrawShape s = new DrawShape();
+        s.setGraphics(graphics);
+        //this only draws the last one.
+        for (ShapeStat shapeStat : ShapeList.getShapeList()) {
+            s.drawShape(shapeStat);
+        }
+*/
 
 
-/*        for (ShapeStat shapeStat: ShapeList.getShapeList()){
-            DrawShape.drawShape(graphics, shapeStat);
-        }*/
+        //same results as for loop
+        //DrawExecution.dE(graphics);
 
-       DrawExecution.dE(this);
+
     }
 
 

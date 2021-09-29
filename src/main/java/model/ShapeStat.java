@@ -2,8 +2,6 @@ package model;
 
 import controller.Pointer;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import model.persistence.UserChoicesImpl;
 import view.interfaces.IShape;
 
