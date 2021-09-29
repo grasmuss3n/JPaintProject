@@ -39,9 +39,6 @@ public class OnDraw implements iCommand, Undoable {
 
     CommandHistory.add(this);
 
-
-    paintCanvas.paintComponent(paintCanvas.getGraphics());
-
   }
 
   @Override

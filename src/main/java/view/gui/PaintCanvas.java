@@ -35,7 +35,7 @@ public class PaintCanvas extends JComponent {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
-        for(ShapeDraw shapeDraw: ShapeList.getShapeList()){
+        for(ShapeDraw shapeDraw : ShapeList.getShapeList()){
           shapeDraw.paint(graphics2d);
         }
 
