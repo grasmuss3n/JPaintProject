@@ -15,8 +15,8 @@ public class ShapeList {
   public static boolean removeFromSL(){
     boolean result = !shapeListStat.isEmpty();
     if(result){
-      removedShapesList.add(shapeListStat.get(shapeListStat.size()-1));
-      shapeListStat.remove(shapeListStat.size()-1);
+      int last = shapeListStat.size()-1;
+      removedShapesList.add(shapeListStat.remove(last));
     }
     return result;
   }

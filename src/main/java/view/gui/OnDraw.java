@@ -34,11 +34,12 @@ public class OnDraw implements EventCallback, Undoable {
 
     ShapeList.addSL(shapeStat);
 
-
-    DrawShape d = new DrawShape();
-    d.paint(paintCanvas.getGraphics2D());
+    //DrawShape d = new DrawShape();
+    //d.paint(paintCanvas.getGraphics2D());
 
     CommandHistory.add(this);
+
+    paintCanvas.repaint();
 
   }
 
@@ -46,7 +47,7 @@ public class OnDraw implements EventCallback, Undoable {
   public void undo() {
     boolean result = ShapeList.removeFromSL();
     if(!result){
-      new Exception("Nothing to undo");
+      System.out.println("Nothing to undo");
     }
   }
 
@@ -54,7 +55,7 @@ public class OnDraw implements EventCallback, Undoable {
   public void redo(){
     boolean result = ShapeList.returnToSL();
     if(!result){
-      new Exception("Nothing to redo");
+      System.out.println("Nothing to redo");
     }
   }
 }

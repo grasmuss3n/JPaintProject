@@ -9,14 +9,12 @@ public class UndoRedoCommand implements Undoable {
 
   @Override
   public void undo() {
-    ShapeList.removeFromSL();
     CommandHistory.undo();
 
   }
 
   @Override
   public void redo() {
-    ShapeList.returnToSL();
     CommandHistory.redo();
 
   }
