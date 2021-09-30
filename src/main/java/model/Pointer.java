@@ -2,7 +2,7 @@ package model;
 
 
 public class Pointer{
-
+  //a class that stores the start and end coordinates.
 
   private int x1 = 0;
   private int y1 = 0;
@@ -18,10 +18,12 @@ public class Pointer{
   public void endCoordinates(int x, int y){
     x2 = x;
     y2 = y;
+
     check();
   }
 
 
+  //solves the issue of when mouse is clicked bottom right to upper left
   private void check(){
     if(x1 > x2){
       int x = x1;

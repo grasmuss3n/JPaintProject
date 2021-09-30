@@ -1,7 +1,7 @@
-package controller.interfaces;
+package model.interfaces;
 
 import java.awt.Graphics2D;
 
-public interface ShapeDraw {
+public interface IDrawShape {
   void paint(Graphics2D graphics2D);
 }

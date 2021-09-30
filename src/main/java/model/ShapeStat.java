@@ -40,6 +40,8 @@ public class ShapeStat implements IShapeStat {
   public IShape getShape(){return shape;}
 
 
+
+  //might get rid of as shape does the job better thus far.
   @Override
   public ShapeType getActiveShapeType() {
     return shapeType;

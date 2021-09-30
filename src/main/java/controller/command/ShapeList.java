@@ -4,35 +4,41 @@ import java.util.ArrayList;
 import model.interfaces.IShapeStat;
 
 public class ShapeList {
-  private static final ArrayList<IShapeStat> shapeListStat = new ArrayList<>();
-  private static final ArrayList<IShapeStat> removedShapesList = new ArrayList<>();
+  //a list of shapes with the relevant drawing information
+  //and a list of shapes taken out of list by undo
+  private static final ArrayList<IShapeStat> shapeList = new ArrayList<>();
+  private static final ArrayList<IShapeStat> removedShapeList = new ArrayList<>();
 
 
+  //adds to shapeList
   public static void addSL(IShapeStat shapeStat){
-    shapeListStat.add(shapeStat);
+    shapeList.add(shapeStat);
   }
 
+  //removes from shapeList and adds to removedShapeList
   public static boolean removeFromSL(){
-    boolean result = !shapeListStat.isEmpty();
+    boolean result = shapeList.isEmpty();
     if(result){
-      int last = shapeListStat.size()-1;
-      removedShapesList.add(shapeListStat.remove(last));
+      int last = shapeList.size()-1;
+      removedShapeList.add(shapeList.remove(last));
     }
     return result;
   }
 
+  //removes from removedShapeList and adds back to shapeList
   public static boolean returnToSL(){
-    boolean result = !removedShapesList.isEmpty();
+    boolean result = !removedShapeList.isEmpty();
     if(result){
-      int last = removedShapesList.size()-1;
-      shapeListStat.add(removedShapesList.remove(last));
+      int last = removedShapeList.size()-1;
+      shapeList.add(removedShapeList.remove(last));
 
     }
     return result;
   }
 
+  //retrieval method for shapeList
   public static ArrayList<IShapeStat> getShapeListStat(){
-    return shapeListStat;
+    return shapeList;
   }
 
 }

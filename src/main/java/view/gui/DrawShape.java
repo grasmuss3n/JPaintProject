@@ -1,20 +1,23 @@
 package view.gui;
 
+import model.interfaces.IDrawShape;
 import model.Pointer;
 import controller.command.ShapeList;
-import controller.interfaces.ShapeDraw;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import model.ShapeShadingType;
 import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
 
-public class DrawShape implements ShapeDraw{
+public class DrawShape implements IDrawShape {
 
+  //creates the shapes.
   public void paint(Graphics2D graphics2D) {
 
     for (IShapeStat shapeStat : ShapeList.getShapeListStat()) {
+      //Color Check
       //System.out.println(shapeStat.getActivePrimaryColor());
+
       IShape shape = shapeStat.getShape();
       Pointer pointer = shapeStat.getPointer();
 
