@@ -10,10 +10,14 @@ import model.interfaces.IShape;
 
 public class DrawRect implements IShape{
 
-
+  /**Code Created and Written by Gianna Rasmussen
+   *Draws a rectangle.
+   * @param g, graphics used for drawing
+   * @param pointer, used to get x and y, as well as height and width
+   * @param c, the color that is to be used.
+   */
   @Override
   public void fill(Graphics g, Pointer pointer, Color c) {
-    //Graphics2D g2 = (Graphics2D) g;
     g.setColor(c);
     g.fillRect(pointer.getX1()+7, pointer.getY1()+7, pointer.getWidth()-15, pointer.getHeight()-15);
   }

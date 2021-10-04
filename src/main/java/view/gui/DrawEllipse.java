@@ -10,6 +10,13 @@ import model.interfaces.IShape;
 
 public class DrawEllipse implements IShape {
 
+  /**Code Created and Written by Gianna Rasmussen
+   *
+   * @param g: graphics
+   * @param pointer: x, y, height, and width
+   * @param c: color
+   */
+
   @Override
   public void fill(Graphics g, Pointer pointer, Color c) {
 

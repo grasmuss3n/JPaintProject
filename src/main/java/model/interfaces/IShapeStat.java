@@ -3,15 +3,21 @@ package model.interfaces;
 import model.Pointer;
 import java.awt.Color;
 import model.ShapeShadingType;
-import model.ShapeType;
 
 public interface IShapeStat {
+
+  /**Code Created and Written by Gianna Rasmussen
+   * The information needed in order to draw the shapes in
+   * @see view.gui.DrawShape
+   * Interface used in
+   * @see model.ShapeStat
+   * and is relevant to
+   * @see controller.command.ShapeList
+   */
   Pointer getPointer();
   IShape getShape();
   Color getActivePrimaryColor();
   Color getActiveSecondaryColor();
   ShapeShadingType getActiveShapeShadingType();
 
-  //might not need. Will asses after all shapes are able to be drawn.
-  ShapeType getActiveShapeType();
 }

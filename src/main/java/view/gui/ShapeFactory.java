@@ -1,19 +1,23 @@
 package view.gui;
 
 import model.ShapeType;
-import model.persistence.UserChoicesImpl;
 import model.interfaces.IShape;
 
 public class ShapeFactory{
 
-  public IShape createShape(UserChoicesImpl stat){
+  /** Code Created and Written by Gianna Rasmussen
+   * Creates IShape shape with correct shape reference to Rectangle,
+   * Triangle, or Ellipse
+   * @param shapeType is the activeShapeType, used for creating new IShape
+   * @return shape, which is used to create new ShapeStat
+   * @see model.interfaces.IShapeStat
+   */
+  public IShape createShape(ShapeType shapeType){
     IShape shape;
-    if(stat.getActiveShapeType().equals(ShapeType.RECTANGLE)){
-      //Println Confirms rectangle is drawn and not using others.
-      //System.out.println("Drawing Rect");
+    if(shapeType.equals(ShapeType.RECTANGLE)){
       shape = new DrawRect();
     }
-    else if(stat.getActiveShapeType().equals(ShapeType.ELLIPSE)){
+    else if(shapeType.equals(ShapeType.ELLIPSE)){
       shape = new DrawEllipse();
     }
     else{

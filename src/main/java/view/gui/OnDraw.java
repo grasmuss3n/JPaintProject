@@ -13,6 +13,10 @@ import view.interfaces.EventCallback;
 
 public class OnDraw implements EventCallback, Undoable {
 
+  /** Code Created and Written by Gianna Rasmussen
+   * When mouse mode is DRAW this command class is implemented
+   */
+
   private Pointer pointer;
   private UserChoicesImpl appState;
   private PaintCanvas paintCanvas;
@@ -28,7 +32,7 @@ public class OnDraw implements EventCallback, Undoable {
   public void run() {
 
     ShapeFactory s = new ShapeFactory();
-    IShape shape = s.createShape(appState);
+    IShape shape = s.createShape(appState.getActiveShapeType());
     IShapeStat shapeStat = new ShapeStat(pointer, appState, shape);
 
     ShapeList.addSL(shapeStat);

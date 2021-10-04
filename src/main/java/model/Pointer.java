@@ -2,7 +2,11 @@ package model;
 
 
 public class Pointer{
-  //a class that stores the start and end coordinates.
+
+  /**Code Created and Written by Gianna Rasmussen
+   * a class that stores the start and end coordinates
+   * A new one is made every time the mouse is pressed
+   */
 
   private int x1 = 0;
   private int y1 = 0;
@@ -49,6 +53,8 @@ public class Pointer{
     return y1;
   }
 
+
+  //getWidth and getWidth are important for the drawing phase.
   public int getHeight(){
     return Math.abs(y1-y2);
   }

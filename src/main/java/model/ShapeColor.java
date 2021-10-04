@@ -3,6 +3,9 @@ package model;
 import java.awt.*;
 
 public enum ShapeColor {
+    /**
+     * Added the getColor methods to all but BLACK
+     */
     BLACK {
         @Override
         public Color getColor(){

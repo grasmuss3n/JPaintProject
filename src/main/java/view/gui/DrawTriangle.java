@@ -10,6 +10,13 @@ import model.interfaces.IShape;
 
 public class DrawTriangle implements IShape {
 
+  /**Code Created and Written by Gianna Rasmussen
+   *
+   * @param g: graphics
+   * @param pointer: x,y, and height
+   * @param c: color
+   */
+
   @Override
   public void fill(Graphics g, Pointer pointer, Color c) {
 

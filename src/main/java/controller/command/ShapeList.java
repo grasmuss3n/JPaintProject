@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import model.interfaces.IShapeStat;
 
 public class ShapeList {
-  //a list of shapes with the relevant drawing information
-  //and a list of shapes taken out of list by undo
+
+  /**Code Created and Written by Gianna Rasmussen
+   * a list of shapes with the relevant drawing information
+   * and a list of shapes taken out of list by undo
+   * uses:
+   * @see model.interfaces.IShapeStat
+   * for lists.
+   */
+
+
   private static final ArrayList<IShapeStat> shapeList = new ArrayList<>();
   private static final ArrayList<IShapeStat> removedShapeList = new ArrayList<>();
 

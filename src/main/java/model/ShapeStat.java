@@ -6,6 +6,11 @@ import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
 
 public class ShapeStat implements IShapeStat {
+
+  /**Code Created and Written by Gianna Rasmussen
+   * Used in the shapeList
+   * Easy retrieval of necessary information
+   */
   private Pointer pointer;
   private IShape shape;
 
@@ -31,6 +36,7 @@ public class ShapeStat implements IShapeStat {
     return pointer;
   }
 
+  //this is to be used in move.
   public void setPointer(int a, int b, int x, int y){
     pointer.startCoordinates(a,b);
     pointer.endCoordinates(x,y);
@@ -38,14 +44,6 @@ public class ShapeStat implements IShapeStat {
 
   @Override
   public IShape getShape(){return shape;}
-
-
-
-  //might get rid of as shape does the job better thus far.
-  @Override
-  public ShapeType getActiveShapeType() {
-    return shapeType;
-  }
 
 
   @Override

@@ -32,7 +32,7 @@ public class PaintCanvas extends JComponent {
       Graphics2D graphics2d = (Graphics2D) graphics;
 
       DrawShape drawShape = new DrawShape();
-      drawShape.paint(graphics2d);
+      drawShape.drawPaint(graphics2d);
 
 
     }
