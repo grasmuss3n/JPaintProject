@@ -1,6 +1,5 @@
 package view.gui;
 
-import model.interfaces.IDrawShape;
 import model.Pointer;
 import controller.command.ShapeList;
 import java.awt.Color;
@@ -9,15 +8,14 @@ import model.ShapeShadingType;
 import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
 
-public class DrawShape implements IDrawShape {
+public class DrawShape {
 
   /**Code Created and Written by Gianna Rasmussen
    *draws the shapes on the canvas,
    * @param graphics2D, used to draw the shapes on the canvas
    */
 
-  @Override
-  public void drawPaint(Graphics2D graphics2D) {
+  public void drawShape(Graphics2D graphics2D) {
 
     for (IShapeStat shapeStat : ShapeList.getShapeListStat()) {
       //Color Check

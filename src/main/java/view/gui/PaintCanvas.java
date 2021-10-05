@@ -31,8 +31,8 @@ public class PaintCanvas extends JComponent {
       super.paintComponent(graphics);
       Graphics2D graphics2d = (Graphics2D) graphics;
 
-      DrawShape drawShape = new DrawShape();
-      drawShape.drawPaint(graphics2d);
+      DrawShape drawS = new DrawShape();
+      drawS.drawShape(graphics2d);
 
 
     }
