@@ -1,24 +1,13 @@
 package main;
 
-import static model.ShapeColor.MAGENTA;
-
 import controller.EventConnector;
 import controller.EventConnectorImpl;
 import controller.KeyboardInterface;
 import controller.MouseHandler;
-import controller.command.ShapeList;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Stroke;
-import model.Pointer;
-import model.ShapeColor;
 import model.persistence.UserChoicesImpl;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
-import view.gui.OnDraw;
 import view.gui.PaintCanvas;
-import view.interfaces.EventCallback;
 import view.interfaces.GuiWindow;
 import view.interfaces.UiModule;
 

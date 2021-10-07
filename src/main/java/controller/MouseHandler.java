@@ -3,8 +3,8 @@ package controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import model.ClickCoordinates;
 import view.gui.OnDraw;
-import model.Pointer;
 import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class MouseHandler extends MouseAdapter {
 
   private PaintCanvas paintCanvas;
 
-  private Pointer pointer;
+  private ClickCoordinates clickCoordinates;
 
   private UserChoicesImpl appState;
 
@@ -35,8 +35,8 @@ public class MouseHandler extends MouseAdapter {
   @Override
   public void mousePressed(MouseEvent e) {
     log.debug("Start " + e.getX() + " " + e.getY());
-    this.pointer = new Pointer();
-    pointer.startCoordinates(e.getX(), e.getY());
+    this.clickCoordinates = new ClickCoordinates();
+    clickCoordinates.startCoordinates(e.getX(), e.getY());
 
   }
 
@@ -45,12 +45,12 @@ public class MouseHandler extends MouseAdapter {
   @Override
   public void mouseReleased(MouseEvent e) {
     log.debug("End " + e.getX() + " " + e.getY());
-    pointer.endCoordinates(e.getX(), e.getY());
+    clickCoordinates.endCoordinates(e.getX(), e.getY());
 
     EventCallback command = null;
     switch (appState.getActiveMouseMode()){
       case DRAW:
-         command = new OnDraw(pointer, appState, paintCanvas);
+         command = new OnDraw(clickCoordinates, appState, paintCanvas);
       case SELECT:
         break;
       case MOVE:

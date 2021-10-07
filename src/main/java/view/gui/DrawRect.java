@@ -1,11 +1,11 @@
 package view.gui;
 
-import model.Pointer;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import model.ClickCoordinates;
 import model.interfaces.IShape;
 
 public class DrawRect implements IShape{
@@ -13,29 +13,29 @@ public class DrawRect implements IShape{
   /**Code Created and Written by Gianna Rasmussen
    *Draws a rectangle.
    * @param g, graphics used for drawing
-   * @param pointer, used to get x and y, as well as height and width
+   * @param clickCoordinates, used to get x and y, as well as height and width
    * @param c, the color that is to be used.
    */
   @Override
-  public void fill(Graphics g, Pointer pointer, Color c) {
+  public void fill(Graphics g, ClickCoordinates clickCoordinates, Color c) {
     g.setColor(c);
-    g.fillRect(pointer.getX1()+7, pointer.getY1()+7, pointer.getWidth()-15, pointer.getHeight()-15);
+    g.fillRect(clickCoordinates.getX1()+7, clickCoordinates.getY1()+7, clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
   }
 
   @Override
-  public void outline(Graphics g, Pointer pointer, Color c) {
+  public void outline(Graphics g, ClickCoordinates clickCoordinates, Color c) {
     Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(8));
     g.setColor(c);
-    g.drawRect(pointer.getX1()+6, pointer.getY1()+6, pointer.getWidth()-10, pointer.getHeight()-10);
+    g.drawRect(clickCoordinates.getX1()+6, clickCoordinates.getY1()+6, clickCoordinates.getWidth()-10, clickCoordinates.getHeight()-10);
   }
 
   @Override
-  public void draw(Graphics g, Pointer pointer) {
+  public void draw(Graphics g, ClickCoordinates clickCoordinates) {
     Graphics2D graphics2D = (Graphics2D) g;
     Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
-    graphics2D.drawRect(pointer.getX1(), pointer.getY1(), pointer.getWidth(), pointer.getHeight());
+    graphics2D.drawRect(clickCoordinates.getX1(), clickCoordinates.getY1(), clickCoordinates.getWidth(), clickCoordinates.getHeight());
   }
 }

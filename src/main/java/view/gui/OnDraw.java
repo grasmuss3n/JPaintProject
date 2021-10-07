@@ -3,7 +3,7 @@ package view.gui;
 import controller.command.CommandHistory;
 import controller.command.ShapeList;
 import controller.interfaces.Undoable;
-import model.Pointer;
+import model.ClickCoordinates;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
 import model.interfaces.IShape;
@@ -17,13 +17,13 @@ public class OnDraw implements EventCallback, Undoable {
    * When mouse mode is DRAW this command class is implemented
    */
 
-  private Pointer pointer;
+  private ClickCoordinates clickCoordinates;
   private UserChoicesImpl appState;
   private PaintCanvas paintCanvas;
 
 
-  public OnDraw(Pointer pointer, UserChoicesImpl appState,PaintCanvas paintCanvas){
-    this.pointer = pointer;
+  public OnDraw(ClickCoordinates clickCoordinates, UserChoicesImpl appState,PaintCanvas paintCanvas){
+    this.clickCoordinates = clickCoordinates;
     this.appState = appState;
     this.paintCanvas = paintCanvas;
   }
@@ -33,7 +33,7 @@ public class OnDraw implements EventCallback, Undoable {
 
     ShapeFactory s = new ShapeFactory();
     IShape shape = s.createShape(appState.getActiveShapeType());
-    IShapeStat shapeStat = new ShapeStat(pointer, appState, shape);
+    IShapeStat shapeStat = new ShapeStat(clickCoordinates, appState, shape);
 
     ShapeList.addSL(shapeStat);
 

@@ -1,7 +1,7 @@
 package model.interfaces;
 
-import model.Pointer;
 import java.awt.Color;
+import model.ClickCoordinates;
 import model.ShapeShadingType;
 
 public interface IShapeStat {
@@ -14,7 +14,7 @@ public interface IShapeStat {
    * and is relevant to
    * @see controller.command.ShapeList
    */
-  Pointer getPointer();
+  ClickCoordinates getClickCoordinates();
   IShape getShape();
   Color getActivePrimaryColor();
   Color getActiveSecondaryColor();

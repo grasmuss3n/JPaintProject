@@ -1,8 +1,8 @@
 package model.interfaces;
 
-import model.Pointer;
 import java.awt.Color;
 import java.awt.Graphics;
+import model.ClickCoordinates;
 
 public interface IShape {
 
@@ -18,10 +18,10 @@ public interface IShape {
    */
 
 
-  void fill(Graphics g, Pointer pointer, Color c);
+  void fill(Graphics g, ClickCoordinates clickCoordinates, Color c);
 
-  void outline(Graphics g, Pointer pointer, Color c);
+  void outline(Graphics g, ClickCoordinates clickCoordinates, Color c);
 
-  void draw(Graphics g, Pointer pointer);
+  void draw(Graphics g, ClickCoordinates clickCoordinates);
 
 }

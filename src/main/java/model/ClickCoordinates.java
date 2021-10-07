@@ -1,8 +1,6 @@
 package model;
 
-
-public class Pointer{
-
+public class ClickCoordinates {
   /**Code Created and Written by Gianna Rasmussen
    * a class that stores the start and end coordinates
    * A new one is made every time the mouse is pressed

@@ -5,13 +5,15 @@ import model.persistence.UserChoicesImpl;
 import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
 
+
+
 public class ShapeStat implements IShapeStat {
 
   /**Code Created and Written by Gianna Rasmussen
    * Used in the shapeList
    * Easy retrieval of necessary information
    */
-  private Pointer pointer;
+  private ClickCoordinates clickCoordinates;
   private IShape shape;
 
   private Color primaryColor;
@@ -20,8 +22,8 @@ public class ShapeStat implements IShapeStat {
   private ShapeType shapeType;
   private ShapeShadingType shapeShadingType;
 
-  public ShapeStat(Pointer pointer,UserChoicesImpl appState, IShape shape){
-    this.pointer = pointer;
+  public ShapeStat(ClickCoordinates clickCoordinates,UserChoicesImpl appState, IShape shape){
+    this.clickCoordinates = clickCoordinates;
     this.shape = shape;
 
     primaryColor = appState.getActivePrimaryColor().getColor();
@@ -32,14 +34,14 @@ public class ShapeStat implements IShapeStat {
   }
 
   @Override
-  public Pointer getPointer(){
-    return pointer;
+  public ClickCoordinates getClickCoordinates(){
+    return clickCoordinates;
   }
 
   //this is to be used in move.
-  public void setPointer(int a, int b, int x, int y){
-    pointer.startCoordinates(a,b);
-    pointer.endCoordinates(x,y);
+  public void setClickCoordinates(int a, int b, int x, int y){
+    clickCoordinates.startCoordinates(a,b);
+    clickCoordinates.endCoordinates(x,y);
   }
 
   @Override
