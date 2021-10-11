@@ -19,11 +19,20 @@ public class DrawEllipse implements IShape {
 
   @Override
   public void fill(Graphics g, ClickCoordinates clickCoordinates, Color c) {
+    g.setColor(c);
 
+    g.fillOval(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
+        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
   }
 
   @Override
   public void outline(Graphics g, ClickCoordinates clickCoordinates, Color c) {
+    Graphics2D g2 = (Graphics2D) g;
+    g2.setStroke(new BasicStroke(8));
+    g.setColor(c);
+
+    g.drawOval(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
+        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
 
   }
 

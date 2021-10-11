@@ -51,6 +51,14 @@ public class ClickCoordinates {
     return y1;
   }
 
+  public int getX2() {
+    return x2;
+  }
+
+
+  public int getY2() {
+    return y2;
+  }
 
   //getWidth and getWidth are important for the drawing phase.
   public int getHeight(){

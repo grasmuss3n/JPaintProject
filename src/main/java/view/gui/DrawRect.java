@@ -19,7 +19,8 @@ public class DrawRect implements IShape{
   @Override
   public void fill(Graphics g, ClickCoordinates clickCoordinates, Color c) {
     g.setColor(c);
-    g.fillRect(clickCoordinates.getX1()+7, clickCoordinates.getY1()+7, clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
+    g.fillRect(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
+        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
   }
 
   @Override
@@ -27,7 +28,8 @@ public class DrawRect implements IShape{
     Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(8));
     g.setColor(c);
-    g.drawRect(clickCoordinates.getX1()+6, clickCoordinates.getY1()+6, clickCoordinates.getWidth()-10, clickCoordinates.getHeight()-10);
+    g.drawRect(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
+        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
   }
 
   @Override

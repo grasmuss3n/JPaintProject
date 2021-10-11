@@ -19,11 +19,43 @@ public class DrawTriangle implements IShape {
 
   @Override
   public void fill(Graphics g, ClickCoordinates clickCoordinates, Color c) {
+    g.setColor(c);
+
+
+    int x1 = clickCoordinates.getX1()+8;
+    int x2 = clickCoordinates.getX2()-8;
+    int y1 = clickCoordinates.getY1()+8;
+    int y2 = clickCoordinates.getY2()-8;
+
+    int x3 = (x2-x1)/2 + x1;
+
+
+    int[] xPoints = new int[]{x1,x3, x2};
+    int[] yPoints = new int[]{y2, y1, y2};
+
+    g.fillPolygon(xPoints, yPoints, 3);
 
   }
 
   @Override
   public void outline(Graphics g, ClickCoordinates clickCoordinates, Color c) {
+    Graphics2D g2 = (Graphics2D) g;
+    g2.setStroke(new BasicStroke(8));
+    g.setColor(c);
+
+    int x1 = clickCoordinates.getX1()+8;
+    int x2 = clickCoordinates.getX2()-8;
+    int y1 = clickCoordinates.getY1()+8;
+    int y2 = clickCoordinates.getY2()-8;
+
+    int x3 = (x2-x1)/2 + x1;
+
+
+    int[] xPoints = new int[]{x1,x3, x2};
+    int[] yPoints = new int[]{y2, y1, y2};
+
+    g.drawPolygon(xPoints, yPoints, 3);
+
 
   }
 
