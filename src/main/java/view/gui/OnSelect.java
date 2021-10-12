@@ -20,6 +20,11 @@ public class OnSelect implements EventCallback {
     ShapeList.clearSelectedSL();
     SelectedShapes.getShapes(clickCoordinates);
 
+    //Test
+    //SelectTest.selectionTest();
+    //paintCanvas.repaint();
+
+
   }
 
 

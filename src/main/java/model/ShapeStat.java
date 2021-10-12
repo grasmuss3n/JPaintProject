@@ -19,7 +19,7 @@ public class ShapeStat implements IShapeStat {
   private Color primaryColor;
   private Color secondaryColor;
 
-  private ShapeType shapeType;
+
   private ShapeShadingType shapeShadingType;
 
   public ShapeStat(ClickCoordinates clickCoordinates,UserChoicesImpl appState, IShape shape){
@@ -29,7 +29,7 @@ public class ShapeStat implements IShapeStat {
     primaryColor = appState.getActivePrimaryColor().getColor();
     secondaryColor = appState.getActiveSecondaryColor().getColor();
 
-    shapeType = appState.getActiveShapeType();
+
     shapeShadingType = appState.getActiveShapeShadingType();
 
   }
@@ -39,7 +39,7 @@ public class ShapeStat implements IShapeStat {
     return clickCoordinates;
   }
 
-  //this is to be used in move.
+  @Override
   public void setClickCoordinates(int a, int b, int x, int y){
     clickCoordinates.startCoordinates(a,b);
     clickCoordinates.endCoordinates(x,y);
@@ -53,6 +53,11 @@ public class ShapeStat implements IShapeStat {
   public Color getActivePrimaryColor() {
 
     return primaryColor;
+  }
+
+  @Override
+  public void setActivePrimaryColor(Color c) {
+    primaryColor = c;
   }
 
   @Override

@@ -20,5 +20,10 @@ public interface IShapeStat {
   Color getActiveSecondaryColor();
   ShapeShadingType getActiveShapeShadingType();
 
+  void setClickCoordinates(int a, int b, int x, int y);
+
+
+  //used in testing
+  void setActivePrimaryColor(Color c);
 
 }

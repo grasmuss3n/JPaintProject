@@ -11,6 +11,9 @@ public class ClickCoordinates {
   private int x2 = 0;
   private int y2 = 0;
 
+  private int row = 0;
+  private int col = 0;
+
 
   public void startCoordinates(int x, int y){
     x1 = x;
@@ -20,6 +23,9 @@ public class ClickCoordinates {
   public void endCoordinates(int x, int y){
     x2 = x;
     y2 = y;
+
+    row = x2 - x1;
+    col = y2 - y1;
 
     check();
   }
@@ -69,6 +75,12 @@ public class ClickCoordinates {
     return Math.abs(x1-x2);
   }
 
+  public int getRow(){
+    return row;
+  }
 
 
+  public int getCol(){
+    return col;
+  }
 }

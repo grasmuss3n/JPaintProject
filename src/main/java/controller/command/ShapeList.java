@@ -20,14 +20,17 @@ public class ShapeList {
 
   private static final ArrayList<IShapeStat> selectedShapeList = new ArrayList<>();
 
-  //private static final ArrayList<ArrayList<IShapeStat>> pastSelections = new ArrayList<ArrayList<IShapeStat>>();
-
 
 
   //retrieval method for shapeList
   public static ArrayList<IShapeStat> getShapeListStat(){
     return shapeList;
   }
+
+  public static ArrayList<IShapeStat> getSelectedShapeListShapeList(){
+    return selectedShapeList;
+  }
+
   //adds to shapeList
   public static void addSL(IShapeStat shapeStat){
     shapeList.add(shapeStat);

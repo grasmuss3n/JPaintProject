@@ -1,27 +1,27 @@
 package view.gui;
 
-import controller.interfaces.Undoable;
+import model.ClickCoordinates;
+import model.MoveSelected;
 import view.interfaces.EventCallback;
 
-public class OnMove implements EventCallback, Undoable {
+public class OnMove implements EventCallback{
 
-  public OnMove(){
 
+  private ClickCoordinates clickCoordinates;
+  private PaintCanvas paintCanvas;
+
+
+  public OnMove(ClickCoordinates clickCoordinates, PaintCanvas paintCanvas){
+    this.clickCoordinates = clickCoordinates;
+    this.paintCanvas = paintCanvas;
   }
 
   @Override
   public void run() {
-
+    MoveSelected.moveSelected(clickCoordinates);
+    paintCanvas.repaint();
   }
 
-  @Override
-  public void undo() {
 
-  }
-
-  @Override
-  public void redo() {
-
-  }
 
 }

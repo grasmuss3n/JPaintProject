@@ -9,8 +9,6 @@ public class SelectedShapes {
 
   public static void getShapes(ClickCoordinates clickCoordinates){
 
-    ArrayList<IShapeStat> selectedShapes = new ArrayList<>();
-
     int x1 = clickCoordinates.getX1();
     int y1 = clickCoordinates.getY1();
 
@@ -26,9 +24,7 @@ public class SelectedShapes {
       int py2 = pointer.getY2();
 
      if((px1 >= x1 || px2 >= x2) && (px1 <= x2 || px2 <=x2)){
-       //System.out.println("PHASE 1");
        if((py1 >= y1 || py2 >= y2) && (py1 <= y2 || py2 <=y2)) {
-         //System.out.println("PHASE 2");
          ShapeList.addSelectedSL(shapeStat);
        }
      }
