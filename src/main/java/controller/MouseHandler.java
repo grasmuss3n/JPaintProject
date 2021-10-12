@@ -1,5 +1,6 @@
 package controller;
 
+import controller.command.CommandMouseMode;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -8,6 +9,8 @@ import view.gui.OnDraw;
 import model.persistence.UserChoicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import view.gui.OnMove;
+import view.gui.OnSelect;
 import view.gui.PaintCanvas;
 import view.interfaces.EventCallback;
 
@@ -47,19 +50,7 @@ public class MouseHandler extends MouseAdapter {
     log.debug("End " + e.getX() + " " + e.getY());
     clickCoordinates.endCoordinates(e.getX(), e.getY());
 
-    EventCallback command = null;
-    switch (appState.getActiveMouseMode()){
-      case DRAW:
-         command = new OnDraw(clickCoordinates, appState, paintCanvas);
-      case SELECT:
-        break;
-      case MOVE:
-        break;
-      default:
-        throw new IllegalStateException("Unexpected value: " + appState.getActiveMouseMode());
-    }
-    command.run();
-
+    new CommandMouseMode(clickCoordinates, appState, paintCanvas);
 
   }
 

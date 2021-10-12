@@ -20,4 +20,5 @@ public interface IShapeStat {
   Color getActiveSecondaryColor();
   ShapeShadingType getActiveShapeShadingType();
 
+
 }

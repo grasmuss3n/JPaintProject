@@ -30,6 +30,10 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> userChoices.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.UNDO, () -> new UndoRedoCommand().undo());
         uiModule.addEvent(EventName.REDO, () -> new UndoRedoCommand().redo());
+        //copy
+        //delete
+        //group
+        //ungroup
     }
 
 

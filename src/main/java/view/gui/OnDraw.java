@@ -3,6 +3,7 @@ package view.gui;
 import controller.command.CommandHistory;
 import controller.command.ShapeList;
 import controller.interfaces.Undoable;
+import java.util.ArrayList;
 import model.ClickCoordinates;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
@@ -42,6 +43,7 @@ public class OnDraw implements EventCallback, Undoable {
     paintCanvas.repaint();
 
   }
+
 
   @Override
   public void undo() {

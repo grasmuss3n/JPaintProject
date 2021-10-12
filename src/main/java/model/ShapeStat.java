@@ -31,6 +31,7 @@ public class ShapeStat implements IShapeStat {
 
     shapeType = appState.getActiveShapeType();
     shapeShadingType = appState.getActiveShapeShadingType();
+
   }
 
   @Override
