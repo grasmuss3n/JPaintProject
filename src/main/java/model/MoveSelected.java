@@ -5,11 +5,10 @@ import model.interfaces.IShapeStat;
 
 public class MoveSelected {
 
-  public static void moveSelected(ClickCoordinates clickCoordinates){
-    if(!ShapeList.getShapeListStat().isEmpty()){
+  //idea: treat moves like new shapes.
 
-      int plusX = clickCoordinates.getRow();
-      int plusY = clickCoordinates.getCol();
+  public static void moveSelected(int plusX, int plusY){
+    if(!ShapeList.getShapeListStat().isEmpty()){
 
 
       for (int i = 0; i < ShapeList.getShapeListStat().size(); i++){
@@ -25,6 +24,10 @@ public class MoveSelected {
 
           s.setClickCoordinates(x1+plusX, y1+plusY, x2+plusX, y2+plusY);
           ShapeList.getShapeListStat().set(i, s);
+
+          //ShapeList.removeFromSL(i);
+          //ShapeList.addSL(s);
+
         }
 
       }

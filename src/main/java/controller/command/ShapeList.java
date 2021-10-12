@@ -69,7 +69,9 @@ public class ShapeList {
   }
 
 
-
+  public static void removeFromSL(int i){
+    removedShapeList.add(shapeList.remove(i));
+  }
 
 
 
