@@ -13,14 +13,14 @@ public class ShapeStat implements IShapeStat {
    * Used in the shapeList
    * Easy retrieval of necessary information
    */
-  private ClickCoordinates clickCoordinates;
-  private IShape shape;
+  private final ClickCoordinates clickCoordinates;
+  private final IShape shape;
 
   private Color primaryColor;
-  private Color secondaryColor;
+  private final Color secondaryColor;
 
 
-  private ShapeShadingType shapeShadingType;
+  private final ShapeShadingType shapeShadingType;
 
   public ShapeStat(ClickCoordinates clickCoordinates,UserChoicesImpl appState, IShape shape){
     this.clickCoordinates = clickCoordinates;
@@ -55,6 +55,7 @@ public class ShapeStat implements IShapeStat {
     return primaryColor;
   }
 
+  //this is only used for the test
   @Override
   public void setActivePrimaryColor(Color c) {
     primaryColor = c;

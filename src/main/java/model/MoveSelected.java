@@ -1,20 +1,24 @@
 package model;
 
+import controller.MoveHistory;
 import controller.command.ShapeList;
 import model.interfaces.IShapeStat;
 
 public class MoveSelected {
 
-  //idea: treat moves like new shapes.
+  /** Code Created and Written by Gianna Rasmussen
+   * Is responsible for changing the ShapeList ClickCoordinate stats
+   * @param plusX : how much to move left or right
+   * @param plusY: how much to move up or down
+   */
 
   public static void moveSelected(int plusX, int plusY){
-    if(!ShapeList.getShapeListStat().isEmpty()){
+    if(!ShapeList.getShapeList().isEmpty()){
 
+      for (int i = 0; i < ShapeList.getShapeList().size(); i++){
 
-      for (int i = 0; i < ShapeList.getShapeListStat().size(); i++){
-
-        IShapeStat s = ShapeList.getShapeListStat().get(i);
-        if(ShapeList.getSelectedShapeListShapeList().contains(s)){
+        IShapeStat s = ShapeList.getShapeList().get(i);
+        if(MoveHistory.getSelected().contains(s)){
 
 
           int x1 = s.getClickCoordinates().getX1();
@@ -23,10 +27,7 @@ public class MoveSelected {
           int y2 = s.getClickCoordinates().getY2();
 
           s.setClickCoordinates(x1+plusX, y1+plusY, x2+plusX, y2+plusY);
-          ShapeList.getShapeListStat().set(i, s);
-
-          //ShapeList.removeFromSL(i);
-          //ShapeList.addSL(s);
+          ShapeList.getShapeList().set(i, s);
 
         }
 

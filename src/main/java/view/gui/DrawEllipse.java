@@ -11,7 +11,8 @@ import model.interfaces.IShape;
 public class DrawEllipse implements IShape {
 
   /**Code Created and Written by Gianna Rasmussen
-   *
+   * Draws ellipse. Technically a circle
+   * but they're the same
    * @param g: graphics
    * @param clickCoordinates: x, y, height, and width
    * @param c: color

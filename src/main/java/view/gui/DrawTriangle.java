@@ -11,9 +11,9 @@ import model.interfaces.IShape;
 public class DrawTriangle implements IShape {
 
   /**Code Created and Written by Gianna Rasmussen
-   *
+   * Draws a triangle
    * @param g: graphics
-   * @param clickCoordinates: x,y, and height
+   * @param clickCoordinates: x,y, height, width
    * @param c: color
    */
 

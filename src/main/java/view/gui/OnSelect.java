@@ -1,26 +1,24 @@
 package view.gui;
 
-import controller.command.CommandHistory;
-import controller.command.MoveHistory;
 import controller.command.ShapeList;
-import controller.interfaces.Undoable;
 import model.ClickCoordinates;
 import view.interfaces.EventCallback;
 
-public class OnSelect implements EventCallback, Undoable {
+public class OnSelect implements EventCallback{
 
-  private ClickCoordinates clickCoordinates;
-  private PaintCanvas paintCanvas;
+  /**Code Created and Written by Gianna Rasmussen
+   * Creates a new array of selected shapes
+   */
+  private final ClickCoordinates clickCoordinates;
 
-  public OnSelect(ClickCoordinates clickCoordinates, PaintCanvas paintCanvas){
+  public OnSelect(ClickCoordinates clickCoordinates){
     this.clickCoordinates = clickCoordinates;
-    this.paintCanvas = paintCanvas;
   }
 
 
   @Override
   public void run() {
-    ShapeList.clearSelectedSL();
+    ShapeList.clearSelectedShape();
     SelectedShapes.getShapes(clickCoordinates);
 
 
@@ -28,21 +26,9 @@ public class OnSelect implements EventCallback, Undoable {
     //Test
     //SelectTest.selectionTest();
 
-    CommandHistory.add(this);
-
-    //paintCanvas.repaint();
 
 
   }
 
 
-  @Override
-  public void undo() {
-
-  }
-
-  @Override
-  public void redo() {
-
-  }
 }

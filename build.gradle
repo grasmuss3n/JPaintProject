@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
     def junitVersion = '5.7.1'
     def logbackVersion = '1.2.4'
 

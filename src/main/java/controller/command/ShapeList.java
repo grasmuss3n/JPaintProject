@@ -21,13 +21,12 @@ public class ShapeList {
   private static final ArrayList<IShapeStat> selectedShapeList = new ArrayList<>();
 
 
-
   //retrieval method for shapeList
-  public static ArrayList<IShapeStat> getShapeListStat(){
+  public static ArrayList<IShapeStat> getShapeList(){
     return shapeList;
   }
 
-  public static ArrayList<IShapeStat> getSelectedShapeListShapeList(){
+  public static ArrayList<IShapeStat> getSelectedShapeList(){
     return selectedShapeList;
   }
 
@@ -38,12 +37,12 @@ public class ShapeList {
 
 
   //add shapes to selection
-  public static void addSelectedSL(IShapeStat shapeStat){
+  public static void addSelectedShape(IShapeStat shapeStat){
     selectedShapeList.add(shapeStat);
   }
 
   //clear selectShapeList, done after move
-  public static void clearSelectedSL(){
+  public static void clearSelectedShape(){
     selectedShapeList.clear();
   }
 
@@ -69,9 +68,9 @@ public class ShapeList {
   }
 
 
-  public static void removeFromSL(int i){
-    removedShapeList.add(shapeList.remove(i));
-  }
+
+
+
 
 
 

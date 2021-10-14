@@ -12,7 +12,7 @@ public class ShapeFactory{
    * @return shape, which is used to create new ShapeStat
    * @see model.interfaces.IShapeStat
    */
-  public IShape createShape(ShapeType shapeType){
+  public static IShape createShape(ShapeType shapeType){
     IShape shape;
     if(shapeType.equals(ShapeType.RECTANGLE)){
       shape = new DrawRect();

@@ -17,7 +17,7 @@ public class DrawShape {
 
   public void drawShape(Graphics2D graphics2D) {
 
-    for (IShapeStat shapeStat : ShapeList.getShapeListStat()) {
+    for (IShapeStat shapeStat : ShapeList.getShapeList()) {
       //Color Check
       //System.out.println(shapeStat.getActivePrimaryColor());
 

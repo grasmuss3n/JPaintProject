@@ -1,7 +1,7 @@
 package view.gui;
 
 import controller.command.CommandHistory;
-import controller.command.MoveHistory;
+import controller.MoveHistory;
 import controller.interfaces.Undoable;
 import model.ClickCoordinates;
 import model.MoveSelected;
@@ -9,16 +9,16 @@ import view.interfaces.EventCallback;
 
 public class OnMove implements EventCallback, Undoable {
 
+  /** Code Created and Written by Gianna Rasmussen
+   * When Mouse Mode is MOVE this program is called
+   */
+  private final PaintCanvas paintCanvas;
 
-  //private ClickCoordinates clickCoordinates;
-  private PaintCanvas paintCanvas;
-
-  private int col;
-  private int row;
+  private final int col;
+  private final int row;
 
 
   public OnMove(ClickCoordinates clickCoordinates, PaintCanvas paintCanvas){
-    //this.clickCoordinates = clickCoordinates;
     this.paintCanvas = paintCanvas;
 
     row = clickCoordinates.getRow();
@@ -27,10 +27,12 @@ public class OnMove implements EventCallback, Undoable {
 
   @Override
   public void run() {
-    MoveSelected.moveSelected(row, col);
+
     int[] rc = new int[]{row,col};
 
     MoveHistory.addMove(rc);
+
+    MoveSelected.moveSelected(row, col);
 
     CommandHistory.add(this);
 
@@ -54,7 +56,7 @@ public class OnMove implements EventCallback, Undoable {
   public void redo() {
     boolean result = MoveHistory.redoMove();
     if(!result){
-      System.out.println("Nothing to undo");
+      System.out.println("Nothing to redo");
     }
     else{
       MoveSelected.moveSelected(MoveHistory.getRow(), MoveHistory.getCol());

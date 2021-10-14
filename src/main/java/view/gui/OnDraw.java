@@ -3,7 +3,6 @@ package view.gui;
 import controller.command.CommandHistory;
 import controller.command.ShapeList;
 import controller.interfaces.Undoable;
-import java.util.ArrayList;
 import model.ClickCoordinates;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
@@ -18,9 +17,10 @@ public class OnDraw implements EventCallback, Undoable {
    * When mouse mode is DRAW this command class is implemented
    */
 
-  private ClickCoordinates clickCoordinates;
-  private UserChoicesImpl appState;
-  private PaintCanvas paintCanvas;
+  private final ClickCoordinates clickCoordinates;
+  private final UserChoicesImpl appState;
+  private final PaintCanvas paintCanvas;
+
 
 
   public OnDraw(ClickCoordinates clickCoordinates, UserChoicesImpl appState,PaintCanvas paintCanvas){
@@ -32,8 +32,7 @@ public class OnDraw implements EventCallback, Undoable {
   @Override
   public void run() {
 
-    ShapeFactory s = new ShapeFactory();
-    IShape shape = s.createShape(appState.getActiveShapeType());
+    IShape shape = ShapeFactory.createShape(appState.getActiveShapeType());
     IShapeStat shapeStat = new ShapeStat(clickCoordinates, appState, shape);
 
     ShapeList.addSL(shapeStat);

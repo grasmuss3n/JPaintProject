@@ -5,14 +5,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import model.ClickCoordinates;
-import view.gui.OnDraw;
 import model.persistence.UserChoicesImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import view.gui.OnMove;
-import view.gui.OnSelect;
 import view.gui.PaintCanvas;
-import view.interfaces.EventCallback;
+
 
 /**
  * MouseHandler is responsible for propagating mouse coordinates into our application
@@ -20,7 +15,6 @@ import view.interfaces.EventCallback;
  */
 public class MouseHandler extends MouseAdapter {
 
-  private static final Logger log = LoggerFactory.getLogger(MouseHandler.class);
 
 
   private PaintCanvas paintCanvas;
@@ -37,8 +31,7 @@ public class MouseHandler extends MouseAdapter {
 
   @Override
   public void mousePressed(MouseEvent e) {
-    log.debug("Start " + e.getX() + " " + e.getY());
-    this.clickCoordinates = new ClickCoordinates();
+    clickCoordinates = new ClickCoordinates();
     clickCoordinates.startCoordinates(e.getX(), e.getY());
 
   }
@@ -47,7 +40,6 @@ public class MouseHandler extends MouseAdapter {
 
   @Override
   public void mouseReleased(MouseEvent e) {
-    log.debug("End " + e.getX() + " " + e.getY());
     clickCoordinates.endCoordinates(e.getX(), e.getY());
 
     new CommandMouseMode(clickCoordinates, appState, paintCanvas);
