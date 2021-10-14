@@ -1,7 +1,10 @@
-package view.gui;
+package model;
 
 import model.ShapeType;
 import model.interfaces.IShape;
+import view.gui.DrawEllipse;
+import view.gui.DrawRect;
+import view.gui.DrawTriangle;
 
 public class ShapeFactory{
 

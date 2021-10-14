@@ -2,6 +2,7 @@ package view.gui;
 
 import controller.ShapeList;
 import model.ClickCoordinates;
+import controller.SelectedShapes;
 import view.interfaces.EventCallback;
 
 public class OnSelect implements EventCallback{

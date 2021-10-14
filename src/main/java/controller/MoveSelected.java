@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import controller.MoveHistory;
 import controller.ShapeList;

@@ -4,7 +4,7 @@ import controller.command.CommandHistory;
 import controller.MoveHistory;
 import controller.interfaces.Undoable;
 import model.ClickCoordinates;
-import model.MoveSelected;
+import controller.MoveSelected;
 import view.interfaces.EventCallback;
 
 public class OnMove implements EventCallback, Undoable {

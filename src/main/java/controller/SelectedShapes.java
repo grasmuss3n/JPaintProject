@@ -1,4 +1,4 @@
-package view.gui;
+package controller;
 
 import controller.ShapeList;
 import model.ClickCoordinates;

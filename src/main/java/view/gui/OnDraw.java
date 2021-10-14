@@ -4,6 +4,7 @@ import controller.command.CommandHistory;
 import controller.ShapeList;
 import controller.interfaces.Undoable;
 import model.ClickCoordinates;
+import model.ShapeFactory;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
 import model.interfaces.IShape;
