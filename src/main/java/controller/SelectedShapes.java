@@ -1,6 +1,5 @@
 package controller;
 
-import controller.ShapeList;
 import model.ClickCoordinates;
 import model.interfaces.IShapeStat;
 

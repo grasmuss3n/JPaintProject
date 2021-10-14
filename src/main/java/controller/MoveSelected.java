@@ -1,7 +1,6 @@
 package controller;
 
-import controller.MoveHistory;
-import controller.ShapeList;
+
 import model.interfaces.IShapeStat;
 
 public class MoveSelected {

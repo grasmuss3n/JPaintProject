@@ -1,6 +1,5 @@
 package model;
 
-import model.ShapeType;
 import model.interfaces.IShape;
 import view.gui.DrawEllipse;
 import view.gui.DrawRect;
