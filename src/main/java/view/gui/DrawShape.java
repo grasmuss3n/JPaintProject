@@ -1,6 +1,6 @@
 package view.gui;
 
-import controller.command.ShapeList;
+import controller.ShapeList;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import model.ClickCoordinates;

@@ -1,5 +1,6 @@
 package model.interfaces;
 
+import controller.ShapeList;
 import java.awt.Color;
 import model.ClickCoordinates;
 import model.ShapeShadingType;
@@ -12,7 +13,7 @@ public interface IShapeStat {
    * Interface used in
    * @see model.ShapeStat
    * and is relevant to
-   * @see controller.command.ShapeList
+   * @see ShapeList
    */
   ClickCoordinates getClickCoordinates();
   IShape getShape();

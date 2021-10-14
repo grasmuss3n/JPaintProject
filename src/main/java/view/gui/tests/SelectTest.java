@@ -1,6 +1,6 @@
 package view.gui.tests;
 
-import controller.command.ShapeList;
+import controller.ShapeList;
 import java.awt.Color;
 import model.interfaces.IShapeStat;
 

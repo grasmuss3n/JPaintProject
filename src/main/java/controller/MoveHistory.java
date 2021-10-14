@@ -1,6 +1,5 @@
 package controller;
 
-import controller.command.ShapeList;
 import java.util.ArrayList;
 import model.interfaces.IShapeStat;
 

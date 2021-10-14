@@ -1,6 +1,6 @@
 package view.gui;
 
-import controller.command.ShapeList;
+import controller.ShapeList;
 import model.ClickCoordinates;
 import model.interfaces.IShapeStat;
 

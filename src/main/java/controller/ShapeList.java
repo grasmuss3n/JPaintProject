@@ -1,4 +1,4 @@
-package controller.command;
+package controller;
 
 import java.util.ArrayList;
 import model.interfaces.IShapeStat;

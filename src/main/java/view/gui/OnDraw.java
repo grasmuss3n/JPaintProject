@@ -1,7 +1,7 @@
 package view.gui;
 
 import controller.command.CommandHistory;
-import controller.command.ShapeList;
+import controller.ShapeList;
 import controller.interfaces.Undoable;
 import model.ClickCoordinates;
 import model.ShapeStat;
