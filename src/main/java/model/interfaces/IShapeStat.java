@@ -27,4 +27,9 @@ public interface IShapeStat {
   //used in testing
   void setActivePrimaryColor(Color c);
 
+
+
+
+
+
 }

@@ -3,6 +3,7 @@ package view.gui.tests;
 import controller.ShapeList;
 import java.awt.Color;
 import model.interfaces.IShapeStat;
+import view.gui.CopyPasteImp;
 
 
 public class SelectTest {

@@ -21,24 +21,25 @@ public class DrawEllipse implements IShape {
   @Override
   public void fill(Graphics g, ClickCoordinates clickCoordinates, Color c) {
     g.setColor(c);
-
-    g.fillOval(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
-        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
+    clickCoordinates.check();
+    g.fillOval(clickCoordinates.getX1(), clickCoordinates.getY1(),
+        clickCoordinates.getWidth(), clickCoordinates.getHeight());
   }
 
   @Override
   public void outline(Graphics g, ClickCoordinates clickCoordinates, Color c) {
+    clickCoordinates.check();
     Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(8));
     g.setColor(c);
 
-    g.drawOval(clickCoordinates.getX1()+8, clickCoordinates.getY1()+8,
-        clickCoordinates.getWidth()-15, clickCoordinates.getHeight()-15);
+    g.drawOval(clickCoordinates.getX1(), clickCoordinates.getY1(),
+        clickCoordinates.getWidth(), clickCoordinates.getHeight());
 
   }
 
   @Override
-  public void draw(Graphics g, ClickCoordinates clickCoordinates) {
+  public void select(Graphics g, ClickCoordinates clickCoordinates) {
     Graphics2D graphics2D = (Graphics2D) g;
     Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);

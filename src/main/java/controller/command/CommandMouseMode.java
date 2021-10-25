@@ -28,7 +28,7 @@ public class CommandMouseMode{
         eventCommand = new OnDraw(clickCoordinates, appState, paintCanvas);
         break;
       case SELECT:
-        eventCommand = new OnSelect(clickCoordinates);
+        eventCommand = new OnSelect(clickCoordinates, paintCanvas);
         break;
       case MOVE:
         eventCommand = new OnMove(clickCoordinates, paintCanvas);

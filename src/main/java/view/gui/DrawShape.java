@@ -38,7 +38,18 @@ public class DrawShape {
         shape.outline(graphics2D, clickCoordinates, secondaryColor);
       }
 
-      shape.draw(graphics2D, clickCoordinates);
+      //for test
+      /*if(shapeStat.shapeSelect()){
+
+      }*/
+
+      //end of test
+
+      if(ShapeList.getSelectedShapeList().contains(shapeStat)){
+        shape.select(graphics2D, clickCoordinates);
+      }
+
+      //shape.select(graphics2D, clickCoordinates);
     }
   }
 

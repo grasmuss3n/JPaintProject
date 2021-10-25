@@ -30,6 +30,7 @@ public class SelectedShapes {
      if((px1 >= x1 || px2 >= x2) && (px1 <= x2 || px2 <=x2)){
        if((py1 >= y1 || py2 >= y2) && (py1 <= y2 || py2 <=y2)) {
          ShapeList.addSelectedShape(shapeStat);
+
        }
      }
     }

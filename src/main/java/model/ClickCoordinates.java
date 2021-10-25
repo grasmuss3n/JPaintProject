@@ -26,13 +26,9 @@ public class ClickCoordinates {
 
     row = x2 - x1;
     col = y2 - y1;
-
-    check();
   }
 
-
-  //solves the issue of when mouse is clicked bottom right to upper left
-  private void check(){
+  public void check(){
     if(x1 > x2){
       int x = x1;
       x1 = x2;
@@ -66,7 +62,6 @@ public class ClickCoordinates {
     return y2;
   }
 
-  //getWidth and getWidth are important for the drawing phase.
   public int getHeight(){
     return Math.abs(y1-y2);
   }

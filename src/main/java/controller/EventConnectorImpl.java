@@ -1,7 +1,6 @@
 package controller;
 
 import controller.command.CommandHistory;
-import controller.interfaces.Undoable;
 import model.interfaces.UserChoices;
 import view.EventName;
 import view.interfaces.UiModule;
@@ -31,7 +30,10 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> userChoices.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
         uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
-        //copy
+        //uiModule.addEvent(EventName.COPY, () -> CopyPaste.setCopyList());
+        //uiModule.addEvent(EventName.COPY, () -> (userChoices.getActiveMouseMode().equals(MouseMode.SELECT)) ? CopyPaste.setCopyList());
+
+        //paste
         //delete
         //group
         //ungroup

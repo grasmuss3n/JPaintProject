@@ -22,6 +22,8 @@ public interface IShape {
 
   void outline(Graphics g, ClickCoordinates clickCoordinates, Color c);
 
-  void draw(Graphics g, ClickCoordinates clickCoordinates);
+  void select(Graphics g, ClickCoordinates clickCoordinates);
+
+
 
 }
