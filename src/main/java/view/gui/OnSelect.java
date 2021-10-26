@@ -47,7 +47,7 @@ public class OnSelect implements EventCallback, CopyPaste {
   }
 
   //used to be sure everything that should be selected IS selected
-  public void test(){
+  private void test(){
     Graphics g= paintCanvas.getGraphics();
     Graphics2D graphics2D = (Graphics2D) g;
     Stroke stroke = new BasicStroke(8, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
