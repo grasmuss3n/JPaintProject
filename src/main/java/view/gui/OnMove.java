@@ -1,10 +1,13 @@
 package view.gui;
 
+import controller.ShapeArrays;
+import controller.UndoRedoArrays;
 import controller.command.CommandHistory;
-import controller.MoveHistory;
 import controller.interfaces.Undoable;
+import java.util.ArrayList;
 import model.ClickCoordinates;
 import controller.MoveSelected;
+import model.interfaces.IShapeStat;
 import view.interfaces.EventCallback;
 
 public class OnMove implements EventCallback, Undoable {
@@ -30,9 +33,15 @@ public class OnMove implements EventCallback, Undoable {
 
     int[] rc = new int[]{row,col};
 
-    MoveHistory.addMove(rc);
+    ArrayList<int[]> m = ShapeArrays.getMoveList();
+    m.add(rc);
+
+    ArrayList<IShapeStat> s = new ArrayList<>(ShapeArrays.getSelectedShapeList());
+    ArrayList<ArrayList<IShapeStat>> selec = ShapeArrays.getSelection();
+    selec.add(s);
 
     MoveSelected.moveSelected(row, col);
+
 
     CommandHistory.add(this);
 
@@ -42,24 +51,29 @@ public class OnMove implements EventCallback, Undoable {
 
   @Override
   public void undo() {
-    boolean result = MoveHistory.moveEmpty();
+    boolean result = !ShapeArrays.getMoveList().isEmpty();
     if(!result){
       System.out.println("Nothing to undo");
     }else{
-      MoveSelected.moveSelected(-MoveHistory.getRow(), -MoveHistory.getCol());
-      MoveHistory.undoMove();
+      MoveSelected.moveSelected(-ShapeArrays.getRow(), -ShapeArrays.getCol());
+      UndoRedoArrays.undoIntArray(ShapeArrays.getMoveList(), ShapeArrays.getRemovedMoveList());
+      UndoRedoArrays.undoArrayOfArray(ShapeArrays.getSelection(), ShapeArrays.getRemovedSelection());
     }
     paintCanvas.repaint();
   }
 
   @Override
   public void redo() {
-    boolean result = MoveHistory.redoMove();
+    boolean result = !ShapeArrays.getRemovedMoveList().isEmpty();
     if(!result){
       System.out.println("Nothing to redo");
     }
     else{
-      MoveSelected.moveSelected(MoveHistory.getRow(), MoveHistory.getCol());
+      UndoRedoArrays.redoIntArray(ShapeArrays.getMoveList(), ShapeArrays.getRemovedMoveList());
+      UndoRedoArrays.redoArrayOfArray(ShapeArrays.getSelection(), ShapeArrays.getRemovedSelection());
+
+      MoveSelected.moveSelected(ShapeArrays.getRow(), ShapeArrays.getCol());
+
     }
     paintCanvas.repaint();
   }

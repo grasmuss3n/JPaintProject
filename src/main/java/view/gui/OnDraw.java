@@ -1,8 +1,10 @@
 package view.gui;
 
+import controller.ShapeArrays;
+import controller.UndoRedoArrays;
 import controller.command.CommandHistory;
-import controller.ShapeList;
 import controller.interfaces.Undoable;
+import java.util.ArrayList;
 import model.ClickCoordinates;
 import model.ShapeFactory;
 import model.ShapeStat;
@@ -36,7 +38,12 @@ public class OnDraw implements EventCallback, Undoable {
     IShape shape = ShapeFactory.createShape(appState.getActiveShapeType());
     IShapeStat shapeStat = new ShapeStat(clickCoordinates, appState, shape);
 
-    ShapeList.addSL(shapeStat);
+    //ShapeList.addSL(shapeStat);
+
+    //UndoReoArrays.addShapeList(shapeStat);
+
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+    shapeList.add(shapeStat);
 
     CommandHistory.add(this);
 
@@ -47,8 +54,11 @@ public class OnDraw implements EventCallback, Undoable {
 
   @Override
   public void undo() {
-    boolean result = ShapeList.removeFromSL();
-    if(!result){
+    boolean result = !ShapeArrays.getShapeList().isEmpty();
+    if(result){
+      UndoRedoArrays.undoIShapeArray(ShapeArrays.getShapeList(), ShapeArrays.getRemovedShapeList());
+    }
+    else{
       System.out.println("Nothing to undo");
     }
     paintCanvas.repaint();
@@ -56,8 +66,11 @@ public class OnDraw implements EventCallback, Undoable {
 
   @Override
   public void redo(){
-    boolean result = ShapeList.returnToSL();
-    if(!result){
+    boolean result = !ShapeArrays.getRemovedShapeList().isEmpty();
+    if(result){
+      UndoRedoArrays.redoIShapeArray(ShapeArrays.getShapeList(), ShapeArrays.getRemovedShapeList());
+    }
+    else{
       System.out.println("Nothing to redo");
     }
     paintCanvas.repaint();

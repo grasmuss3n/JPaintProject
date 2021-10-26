@@ -3,6 +3,8 @@ package controller;
 import controller.command.CommandHistory;
 import model.interfaces.UserChoices;
 import view.EventName;
+import view.gui.CopyPasteImp;
+import view.gui.OnSelect;
 import view.interfaces.UiModule;
 
 /**
@@ -12,9 +14,12 @@ public class EventConnectorImpl implements EventConnector {
     private final UiModule uiModule;
     private final UserChoices userChoices;
 
+
+
     public EventConnectorImpl(UiModule uiModule, UserChoices userChoices) {
         this.uiModule = uiModule;
         this.userChoices = userChoices;
+
     }
 
     @Override
@@ -30,8 +35,10 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> userChoices.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
         uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
-        //uiModule.addEvent(EventName.COPY, () -> CopyPaste.setCopyList());
-        //uiModule.addEvent(EventName.COPY, () -> (userChoices.getActiveMouseMode().equals(MouseMode.SELECT)) ? CopyPaste.setCopyList());
+        //uiModule.addEvent(EventName.COPY, () -> OnSelect.copy());
+
+        //uiModule.addEvent(EventName.PASTE, () -> CopyPasteImp.paste());
+
 
         //paste
         //delete

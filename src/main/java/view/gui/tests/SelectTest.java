@@ -1,6 +1,6 @@
 package view.gui.tests;
 
-import controller.ShapeList;
+import controller.ShapeArrays;
 import java.awt.Color;
 import model.interfaces.IShapeStat;
 import view.gui.CopyPasteImp;
@@ -15,13 +15,13 @@ public class SelectTest {
 
   //Turns everything in selected area yellow.
   public static void selectionTest(){
-    if(!ShapeList.getShapeList().isEmpty()){
-      for (int i = 0; i < ShapeList.getShapeList().size(); i++){
+    if(!ShapeArrays.getShapeList().isEmpty()){
+      for (int i = 0; i < ShapeArrays.getShapeList().size(); i++){
 
-        IShapeStat s = ShapeList.getShapeList().get(i);
-        if(ShapeList.getSelectedShapeList().contains(s)){
+        IShapeStat s = ShapeArrays.getShapeList().get(i);
+        if(ShapeArrays.getSelectedShapeList().contains(s)){
           s.setActivePrimaryColor(Color.YELLOW);
-          ShapeList.getShapeList().set(i, s);
+          ShapeArrays.getShapeList().set(i, s);
         }
 
       }

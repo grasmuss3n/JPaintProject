@@ -1,18 +1,18 @@
 package view.gui;
 
-import controller.ShapeList;
-import controller.interfaces.CopyPaste;
+import controller.ShapeArrays;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import java.util.ArrayList;
 import model.ClickCoordinates;
 import controller.SelectedShapes;
 import model.interfaces.IShapeStat;
 import view.interfaces.EventCallback;
 
-public class OnSelect implements EventCallback, CopyPaste {
+public class OnSelect implements EventCallback{
 
   /**Code Created and Written by Gianna Rasmussen
    * Creates a new array of selected shapes
@@ -30,21 +30,25 @@ public class OnSelect implements EventCallback, CopyPaste {
 
   @Override
   public void run() {
-    //Not selecting right
-    //idk why
-    ShapeList.clearSelectedShape();
+    ArrayList<IShapeStat> sel = ShapeArrays.getSelectedShapeList();
+    sel.clear();
+
     SelectedShapes.getShapes(clickCoordinates);
 
-    //First Test
+
+
+
+    //Initial Test
     //SelectTest.selectionTest();
 
     //Test 2: outline
     //test();
 
-
     paintCanvas.repaint();
 
   }
+
+
 
   //used to be sure everything that should be selected IS selected
   private void test(){
@@ -55,20 +59,11 @@ public class OnSelect implements EventCallback, CopyPaste {
     graphics2D.setColor(Color.BLACK);
     graphics2D.drawRect(clickCoordinates.getX1(), clickCoordinates.getY1(), clickCoordinates.getWidth(), clickCoordinates.getHeight());
 
-    for(IShapeStat shapeStat : ShapeList.getSelectedShapeList()){
+    for(IShapeStat shapeStat : ShapeArrays.getSelectedShapeList()){
      ClickCoordinates p = shapeStat.getClickCoordinates();
       graphics2D.drawRect(p.getX1()-10, p.getY1()-10, p.getWidth()+20, p.getHeight()+20);
     }
 
-
-
   }
 
-
-
-
-  @Override
-  public void copy() {
-    CopyPasteImp.setCopyList();
-  }
 }

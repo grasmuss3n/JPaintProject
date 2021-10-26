@@ -1,6 +1,7 @@
 package controller;
 
 
+import java.util.ArrayList;
 import model.interfaces.IShapeStat;
 
 public class MoveSelected {
@@ -12,21 +13,22 @@ public class MoveSelected {
    */
 
   public static void moveSelected(int plusX, int plusY){
-    if(!ShapeList.getShapeList().isEmpty()){
+    if(!ShapeArrays.getShapeList().isEmpty()){
 
-      for (int i = 0; i < ShapeList.getShapeList().size(); i++){
+      for (int i = 0; i < ShapeArrays.getShapeList().size(); i++){
 
-        IShapeStat s = ShapeList.getShapeList().get(i);
-        if(MoveHistory.getSelected().contains(s)){
+        IShapeStat s = ShapeArrays.getShapeList().get(i);
 
+        ArrayList<ArrayList<IShapeStat>> sel = ShapeArrays.getSelection();
 
+        if(sel.get(sel.size()-1).contains(s)) {
           int x1 = s.getClickCoordinates().getX1();
           int x2 = s.getClickCoordinates().getX2();
           int y1 = s.getClickCoordinates().getY1();
           int y2 = s.getClickCoordinates().getY2();
 
           s.setClickCoordinates(x1+plusX, y1+plusY, x2+plusX, y2+plusY);
-          ShapeList.getShapeList().set(i, s);
+          ShapeArrays.getShapeList().set(i, s);
 
         }
 

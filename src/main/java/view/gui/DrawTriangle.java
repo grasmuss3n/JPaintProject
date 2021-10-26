@@ -63,11 +63,32 @@ public class DrawTriangle implements IShape {
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
 
-    //not fully corrent
-    int x1 = clickCoordinates.getX1()-10;
-    int x2 = clickCoordinates.getX2()+10;
-    int y1 = clickCoordinates.getY1()-10;
-    int y2 = clickCoordinates.getY2()+10;
+
+    int x1 = clickCoordinates.getX1();
+    int x2 = clickCoordinates.getX2();
+    int y1 = clickCoordinates.getY1();
+    int y2 = clickCoordinates.getY2();
+
+
+    //an attempt was made
+
+    if(x1 < x2){
+      x1 = x1 - 20;
+      x2 = x2 + 40;
+    }
+    else{
+      x1 = x1 + 10;
+      x2 = x2 - 20;
+    }
+
+    if(y1 < y2){
+      y1 = y1 - 30;
+      y2 = y2 + 10;
+    }
+    else{
+      y1 = y1 + 40;
+      y2 = y2 - 20;
+    }
 
     //clickCoordinates.getX1()-10, clickCoordinates.getY1()-10, clickCoordinates.getWidth()+20, clickCoordinates.getHeight()+20
     int[] xPoints = new int[]{x1,x1, x2};

@@ -34,6 +34,19 @@ public class ShapeStat implements IShapeStat {
 
   }
 
+  public ShapeStat(IShapeStat shapeStat){
+
+    ClickCoordinates p = shapeStat.getClickCoordinates();
+    p.startCoordinates(p.getX1()+5, p.getY1()+5);
+    p.endCoordinates(p.getX2()+5, p.getY2()+5);
+
+    this.clickCoordinates = p;
+    this.shape = shapeStat.getShape();
+    primaryColor = shapeStat.getActivePrimaryColor();
+    secondaryColor = shapeStat.getActiveSecondaryColor();
+    shapeShadingType = shapeStat.getActiveShapeShadingType();
+  }
+
   @Override
   public ClickCoordinates getClickCoordinates(){
     return clickCoordinates;
@@ -71,6 +84,8 @@ public class ShapeStat implements IShapeStat {
   public ShapeShadingType getActiveShapeShadingType() {
     return shapeShadingType;
   }
+
+
 
 
 }

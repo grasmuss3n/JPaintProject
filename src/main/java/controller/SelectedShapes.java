@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import model.ClickCoordinates;
 import model.interfaces.IShapeStat;
 
@@ -13,15 +14,13 @@ public class SelectedShapes {
 
   public static void getShapes(ClickCoordinates clickCoordinates){
 
-    //this shit still isn't working right
     int x1 = clickCoordinates.getX1();
     int y1 = clickCoordinates.getY1();
 
     int x2 = clickCoordinates.getX2();
     int y2 = clickCoordinates.getY2();
 
-
-    for(IShapeStat shapeStat : ShapeList.getShapeList()){
+    for(IShapeStat shapeStat: ShapeArrays.getShapeList()){
       ClickCoordinates pointer = shapeStat.getClickCoordinates();
       int px1 = pointer.getX1();
       int px2 = pointer.getX2();
@@ -30,10 +29,11 @@ public class SelectedShapes {
 
       if((px1 >= x1 || px2 >= x1) && (px1 <= x2 || px2 <=x2)){
        if((py1 >= y1 || py2 >= y1) && (py1 <= y2 || py2 <=y2)) {
-         ShapeList.addSelectedShape(shapeStat);
+         ArrayList<IShapeStat> shapeList = ShapeArrays.getSelectedShapeList();
+         shapeList.add(shapeStat);
+
        }
      }
-
 
     }
   }

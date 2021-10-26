@@ -1,6 +1,6 @@
 package view.gui;
 
-import controller.ShapeList;
+import controller.ShapeArrays;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import model.ClickCoordinates;
@@ -17,7 +17,7 @@ public class DrawShape {
 
   public void drawShape(Graphics2D graphics2D) {
 
-    for (IShapeStat shapeStat : ShapeList.getShapeList()) {
+    for (IShapeStat shapeStat : ShapeArrays.getShapeList()) {
       //Color Check
       //System.out.println(shapeStat.getActivePrimaryColor());
 
@@ -45,7 +45,7 @@ public class DrawShape {
 
       //end of test
 
-      if(ShapeList.getSelectedShapeList().contains(shapeStat)){
+      if(ShapeArrays.getSelectedShapeList().contains(shapeStat)){
         shape.select(graphics2D, clickCoordinates);
       }
 
