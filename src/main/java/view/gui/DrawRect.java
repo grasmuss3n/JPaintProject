@@ -40,6 +40,6 @@ public class DrawRect implements IShape{
     Stroke stroke = new BasicStroke(8, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
-    graphics2D.drawRect(clickCoordinates.getX1()-8, clickCoordinates.getY1()-8, clickCoordinates.getWidth()+8, clickCoordinates.getHeight()+8);
+    graphics2D.drawRect(clickCoordinates.getX1()-10, clickCoordinates.getY1()-10, clickCoordinates.getWidth()+20, clickCoordinates.getHeight()+20);
   }
 }

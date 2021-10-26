@@ -41,9 +41,10 @@ public class DrawEllipse implements IShape {
   @Override
   public void select(Graphics g, ClickCoordinates clickCoordinates) {
     Graphics2D graphics2D = (Graphics2D) g;
-    Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+    Stroke stroke = new BasicStroke(8, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
-    graphics2D.drawRect(clickCoordinates.getX1(), clickCoordinates.getY1(), clickCoordinates.getWidth(), clickCoordinates.getHeight());
+    graphics2D.drawOval(clickCoordinates.getX1()-10, clickCoordinates.getY1()-10, clickCoordinates.getWidth()+20, clickCoordinates.getHeight()+20);
+
   }
 }

@@ -59,16 +59,17 @@ public class DrawTriangle implements IShape {
 
   public void select(Graphics g, ClickCoordinates clickCoordinates) {
     Graphics2D graphics2D = (Graphics2D) g;
-    Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+    Stroke stroke = new BasicStroke(8, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
     graphics2D.setStroke(stroke);
     graphics2D.setColor(Color.BLACK);
 
-    int x1 = clickCoordinates.getX1()+8;
-    int x2 = clickCoordinates.getX2()-8;
-    int y1 = clickCoordinates.getY1()+8;
-    int y2 = clickCoordinates.getY2()-8;
+    //not fully corrent
+    int x1 = clickCoordinates.getX1()-10;
+    int x2 = clickCoordinates.getX2()+10;
+    int y1 = clickCoordinates.getY1()-10;
+    int y2 = clickCoordinates.getY2()+10;
 
-
+    //clickCoordinates.getX1()-10, clickCoordinates.getY1()-10, clickCoordinates.getWidth()+20, clickCoordinates.getHeight()+20
     int[] xPoints = new int[]{x1,x1, x2};
     int[] yPoints = new int[]{y1, y2, y2};
 
