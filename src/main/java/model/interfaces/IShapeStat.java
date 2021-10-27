@@ -3,6 +3,7 @@ package model.interfaces;
 import java.awt.Color;
 import model.ClickCoordinates;
 import model.ShapeShadingType;
+import model.persistence.UserChoicesImpl;
 
 public interface IShapeStat {
 
@@ -20,12 +21,13 @@ public interface IShapeStat {
   Color getActiveSecondaryColor();
   ShapeShadingType getActiveShapeShadingType();
 
+  UserChoicesImpl getAppState();
+
   void setClickCoordinates(int a, int b, int x, int y);
 
 
   //used in testing
   void setActivePrimaryColor(Color c);
-
 
 
 

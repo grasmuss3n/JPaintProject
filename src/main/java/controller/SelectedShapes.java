@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import model.ClickCoordinates;
+import model.ShapeStat;
 import model.interfaces.IShapeStat;
 
 public class SelectedShapes {
@@ -20,7 +21,12 @@ public class SelectedShapes {
     int x2 = clickCoordinates.getX2();
     int y2 = clickCoordinates.getY2();
 
-    for(IShapeStat shapeStat: ShapeArrays.getShapeList()){
+    ArrayList<IShapeStat> shapeList = new ArrayList<>(ShapeArrays.getShapeList());
+
+    ArrayList<IShapeStat> shapeList2 = ShapeArrays.getSelectedShapeList();
+
+    for(IShapeStat shapeStat: shapeList){
+
       ClickCoordinates pointer = shapeStat.getClickCoordinates();
       int px1 = pointer.getX1();
       int px2 = pointer.getX2();
@@ -29,8 +35,8 @@ public class SelectedShapes {
 
       if((px1 >= x1 || px2 >= x1) && (px1 <= x2 || px2 <=x2)){
        if((py1 >= y1 || py2 >= y1) && (py1 <= y2 || py2 <=y2)) {
-         ArrayList<IShapeStat> shapeList = ShapeArrays.getSelectedShapeList();
-         shapeList.add(shapeStat);
+
+         shapeList2.add(shapeStat);
 
        }
      }

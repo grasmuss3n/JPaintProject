@@ -1,6 +1,7 @@
 package controller;
 
 import controller.command.CommandMouseMode;
+import controller.command.PasteCommand;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

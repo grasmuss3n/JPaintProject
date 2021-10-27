@@ -1,6 +1,7 @@
 package controller;
 
 import controller.command.CommandHistory;
+import controller.command.PasteCommand;
 import model.interfaces.UserChoices;
 import view.EventName;
 import view.gui.CopyPasteImp;
@@ -35,9 +36,8 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> userChoices.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
         uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
-        //uiModule.addEvent(EventName.COPY, () -> OnSelect.copy());
-
-        //uiModule.addEvent(EventName.PASTE, () -> CopyPasteImp.paste());
+        uiModule.addEvent(EventName.COPY, () -> CopyPasteImp.copy());
+        uiModule.addEvent(EventName.PASTE, () -> PasteCommand.paste());
 
 
         //paste

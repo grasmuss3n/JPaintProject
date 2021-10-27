@@ -38,10 +38,6 @@ public class OnDraw implements EventCallback, Undoable {
     IShape shape = ShapeFactory.createShape(appState.getActiveShapeType());
     IShapeStat shapeStat = new ShapeStat(clickCoordinates, appState, shape);
 
-    //ShapeList.addSL(shapeStat);
-
-    //UndoReoArrays.addShapeList(shapeStat);
-
     ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
     shapeList.add(shapeStat);
 
