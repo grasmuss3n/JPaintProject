@@ -5,6 +5,7 @@ import controller.EventConnectorImpl;
 import controller.KeyboardInterface;
 import controller.MouseHandler;
 import model.persistence.UserChoicesImpl;
+import model.CurrentCanvas;
 import view.gui.Gui;
 import view.gui.GuiWindowImpl;
 import view.gui.PaintCanvas;
@@ -14,8 +15,8 @@ import view.interfaces.UiModule;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
+        PaintCanvas paintCanvas = CurrentCanvas.paintCanvas;
 
-        PaintCanvas paintCanvas = new PaintCanvas();
         GuiWindow guiWindow = new GuiWindowImpl(paintCanvas);
         UiModule uiModule = new Gui(guiWindow);
         UserChoicesImpl appState = new UserChoicesImpl(uiModule);
@@ -26,8 +27,11 @@ public class Main {
 
 
         MouseHandler mouse = new MouseHandler();
-        mouse.paintCanvasMouseHandler(paintCanvas, appState);
+        mouse.paintCanvasMouseHandler(appState);
         paintCanvas.addMouseListener(mouse);
+
+
+
         controller.setup();
 
 

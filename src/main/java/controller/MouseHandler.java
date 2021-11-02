@@ -1,13 +1,10 @@
 package controller;
 
 import controller.command.CommandMouseMode;
-import controller.command.PasteCommand;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import model.ClickCoordinates;
 import model.persistence.UserChoicesImpl;
-import view.gui.PaintCanvas;
 
 
 /**
@@ -16,17 +13,12 @@ import view.gui.PaintCanvas;
  */
 public class MouseHandler extends MouseAdapter {
 
-
-
-  private PaintCanvas paintCanvas;
-
   private ClickCoordinates clickCoordinates;
 
   private UserChoicesImpl appState;
 
 
-  public void paintCanvasMouseHandler(PaintCanvas paintCanvas, UserChoicesImpl appState){
-    this.paintCanvas = paintCanvas;
+  public void paintCanvasMouseHandler(UserChoicesImpl appState){
     this.appState = appState;
   }
 
@@ -43,7 +35,7 @@ public class MouseHandler extends MouseAdapter {
   public void mouseReleased(MouseEvent e) {
     clickCoordinates.endCoordinates(e.getX(), e.getY());
 
-    new CommandMouseMode(clickCoordinates, appState, paintCanvas);
+    new CommandMouseMode(clickCoordinates, appState);
 
   }
 

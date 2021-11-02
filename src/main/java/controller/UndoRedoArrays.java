@@ -5,49 +5,87 @@ import model.interfaces.IShapeStat;
 
 public class UndoRedoArrays {
 
-  public static void undoIShapeArray(ArrayList<IShapeStat> shapeList, ArrayList<IShapeStat> removedShapeList){
+
+  public static void undoShapeList(){
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+    ArrayList<IShapeStat> removedShapeList = ShapeArrays.getRemovedShapeList();
     int last = shapeList.size()-1;
     removedShapeList.add(shapeList.remove(last));
   }
 
-  public static void redoIShapeArray(ArrayList<IShapeStat> shapeList, ArrayList<IShapeStat> removedShapeList){
+  public static void redoShapeList(){
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+    ArrayList<IShapeStat> removedShapeList = ShapeArrays.getRemovedShapeList();
     int last = removedShapeList.size()-1;
     shapeList.add(removedShapeList.remove(last));
   }
 
 
-  public static void undoIntArray(ArrayList<int[]> moveList, ArrayList<int[]> removedMoveList){
+  public static void undoMove(){
+    ArrayList<int[]> moveList = ShapeArrays.getMoveList();
+    ArrayList<int[]> removedMoveList = ShapeArrays.getRemovedMoveList();
+
+    ArrayList<ArrayList<IShapeStat>> selection = ShapeArrays.getMoveSelection();
+    ArrayList<ArrayList<IShapeStat>> removedSelection = ShapeArrays.getRemovedSelection();
+
+
     int last = moveList.size()-1;
     removedMoveList.add(moveList.remove(last));
-  }
-  public static void redoIntArray(ArrayList<int[]> moveList, ArrayList<int[]> removedMoveList){
-    int last = removedMoveList.size()-1;
-    moveList.add(removedMoveList.remove(last));
-  }
 
-
-  public static void undoArrayOfArray(ArrayList<ArrayList<IShapeStat>> selection, ArrayList<ArrayList<IShapeStat>> removedSelection){
-    int last = selection.size() - 1;
     removedSelection.add(selection.remove(last));
+
     ArrayList<IShapeStat> s = ShapeArrays.getSelectedShapeList();
     s.clear();
+
     if(!selection.isEmpty()){
-      ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getSelection());
+      ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getMoveSelection());
       last = selec.size()-1;
       s.addAll(selec.get(last));
     }
   }
 
-  public static void redoArrayOfArray(ArrayList<ArrayList<IShapeStat>> selection, ArrayList<ArrayList<IShapeStat>> removedSelection){
-    int last = removedSelection.size() - 1;
+
+  public static void redoMove(){
+    ArrayList<int[]> moveList = ShapeArrays.getMoveList();
+    ArrayList<int[]> removedMoveList = ShapeArrays.getRemovedMoveList();
+
+    ArrayList<ArrayList<IShapeStat>> selection = ShapeArrays.getMoveSelection();
+    ArrayList<ArrayList<IShapeStat>> removedSelection = ShapeArrays.getRemovedSelection();
+
+    int last = removedMoveList.size()-1;
+    moveList.add(removedMoveList.remove(last));
+
     selection.add(removedSelection.remove(last));
     ArrayList<IShapeStat> s = ShapeArrays.getSelectedShapeList();
     s.clear();
-    ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getSelection());
+    ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getMoveSelection());
     last = selec.size()-1;
     s.addAll(selec.get(last));
+
   }
 
+
+  public static void undoPasted(){
+    ArrayList<ArrayList<IShapeStat>> pasted = ShapeArrays.getPasted();
+    ArrayList<ArrayList<IShapeStat>> removedPasted = ShapeArrays.getRemovedPasted();
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+
+    int last = pasted.size()-1;
+    shapeList.removeAll(pasted.get(last));
+    removedPasted.add(pasted.remove(last));
+
+  }
+
+  public static void redoPasted(){
+    ArrayList<ArrayList<IShapeStat>> pasted = ShapeArrays.getPasted();
+    ArrayList<ArrayList<IShapeStat>> removedPasted = ShapeArrays.getRemovedPasted();
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+
+    int last = removedPasted.size()-1;
+
+    shapeList.addAll(removedPasted.get(last));
+    pasted.add(removedPasted.remove(last));
+  }
 
 
 }

@@ -1,11 +1,9 @@
 package controller;
 
 import controller.command.CommandHistory;
-import controller.command.PasteCommand;
 import model.interfaces.UserChoices;
 import view.EventName;
 import view.gui.CopyPasteImp;
-import view.gui.OnSelect;
 import view.interfaces.UiModule;
 
 /**
@@ -20,6 +18,7 @@ public class EventConnectorImpl implements EventConnector {
     public EventConnectorImpl(UiModule uiModule, UserChoices userChoices) {
         this.uiModule = uiModule;
         this.userChoices = userChoices;
+
 
     }
 
@@ -37,10 +36,9 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
         uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
         uiModule.addEvent(EventName.COPY, () -> CopyPasteImp.copy());
-        uiModule.addEvent(EventName.PASTE, () -> PasteCommand.paste());
+        uiModule.addEvent(EventName.PASTE, () -> CopyPasteImp.paste());
 
 
-        //paste
         //delete
         //group
         //ungroup

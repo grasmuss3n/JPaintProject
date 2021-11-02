@@ -2,22 +2,21 @@ package controller;
 
 import java.util.ArrayList;
 import model.ClickCoordinates;
-import model.ShapeStat;
 import model.interfaces.IShapeStat;
 
 public class ShapeArrays {
+
+
   private static final ArrayList<IShapeStat> shapeList = new ArrayList<>();
   private static final ArrayList<IShapeStat> removedShapeList = new ArrayList<>();
 
   private static final ArrayList<IShapeStat> selectedShapeList = new ArrayList<>();
-  private static final ArrayList<IShapeStat> copied = new ArrayList<>();
 
   private static final ArrayList<int[]> moveList = new ArrayList<>();
   private static final ArrayList<int[]> removedMoveList = new ArrayList<>();
 
-
-  private static final ArrayList<ArrayList<IShapeStat>> selection = new ArrayList<>();
-  private static final ArrayList<ArrayList<IShapeStat>> removedSelection = new ArrayList<>();
+  private static final ArrayList<ArrayList<IShapeStat>> moveSelection = new ArrayList<>();
+  private static final ArrayList<ArrayList<IShapeStat>> removedMoveSelection = new ArrayList<>();
 
 
   private static final ArrayList<ArrayList<IShapeStat>> pasted = new ArrayList<>();
@@ -36,10 +35,6 @@ public class ShapeArrays {
     return selectedShapeList;
   }
 
-  public static ArrayList<IShapeStat> getCopied(){
-    return copied;
-  }
-
   public static ArrayList<int[]> getMoveList(){
     return moveList;
   }
@@ -48,12 +43,12 @@ public class ShapeArrays {
     return removedMoveList;
   }
 
-  public static ArrayList<ArrayList<IShapeStat>> getSelection(){
-    return selection;
+  public static ArrayList<ArrayList<IShapeStat>> getMoveSelection(){
+    return moveSelection;
   }
 
   public static ArrayList<ArrayList<IShapeStat>> getRemovedSelection(){
-    return removedSelection;
+    return removedMoveSelection;
   }
 
   public static ArrayList<ArrayList<IShapeStat>> getPasted(){
@@ -88,6 +83,11 @@ public class ShapeArrays {
 
     return Boolean.FALSE;
   }
+
+
+
+
+
 
 
 }

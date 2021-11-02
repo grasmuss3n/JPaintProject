@@ -6,6 +6,7 @@ import controller.command.CommandHistory;
 import controller.interfaces.Undoable;
 import java.util.ArrayList;
 import model.ClickCoordinates;
+import model.CurrentCanvas;
 import model.ShapeFactory;
 import model.ShapeStat;
 import model.persistence.UserChoicesImpl;
@@ -22,14 +23,13 @@ public class OnDraw implements EventCallback, Undoable {
 
   private final ClickCoordinates clickCoordinates;
   private final UserChoicesImpl appState;
-  private final PaintCanvas paintCanvas;
+  private final PaintCanvas paintCanvas = CurrentCanvas.paintCanvas;
 
 
 
-  public OnDraw(ClickCoordinates clickCoordinates, UserChoicesImpl appState,PaintCanvas paintCanvas){
+  public OnDraw(ClickCoordinates clickCoordinates, UserChoicesImpl appState){
     this.clickCoordinates = clickCoordinates;
     this.appState = appState;
-    this.paintCanvas = paintCanvas;
   }
 
   @Override
@@ -39,11 +39,15 @@ public class OnDraw implements EventCallback, Undoable {
     IShapeStat shapeStat = new ShapeStat(clickCoordinates, appState, shape);
 
     ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+
     shapeList.add(shapeStat);
+
 
     CommandHistory.add(this);
 
-    paintCanvas.repaint();
+    DrawShape.drawShape(CurrentCanvas.paintCanvas.getGraphics2D(), shapeStat);
+
+    //paintCanvas.repaint();
 
   }
 
@@ -52,7 +56,7 @@ public class OnDraw implements EventCallback, Undoable {
   public void undo() {
     boolean result = !ShapeArrays.getShapeList().isEmpty();
     if(result){
-      UndoRedoArrays.undoIShapeArray(ShapeArrays.getShapeList(), ShapeArrays.getRemovedShapeList());
+      UndoRedoArrays.undoShapeList();
     }
     else{
       System.out.println("Nothing to undo");
@@ -64,7 +68,7 @@ public class OnDraw implements EventCallback, Undoable {
   public void redo(){
     boolean result = !ShapeArrays.getRemovedShapeList().isEmpty();
     if(result){
-      UndoRedoArrays.redoIShapeArray(ShapeArrays.getShapeList(), ShapeArrays.getRemovedShapeList());
+      UndoRedoArrays.redoShapeList();
     }
     else{
       System.out.println("Nothing to redo");

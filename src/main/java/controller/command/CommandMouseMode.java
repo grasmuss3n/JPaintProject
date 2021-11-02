@@ -5,7 +5,6 @@ import model.persistence.UserChoicesImpl;
 import view.gui.OnDraw;
 import view.gui.OnMove;
 import view.gui.OnSelect;
-import view.gui.PaintCanvas;
 import view.interfaces.EventCallback;
 
 public class CommandMouseMode{
@@ -15,23 +14,22 @@ public class CommandMouseMode{
    * This could also be at the end of MouseHandler mouseReleased
    * @param clickCoordinates is used in all three cases of mouse modes excluding error.
    * @param appState is used only in OnDraw in order to create a new shape.
-   * @param paintCanvas is used for the painCanvas.repaint() command.
    */
 
-  public CommandMouseMode(ClickCoordinates clickCoordinates, UserChoicesImpl appState,
-      PaintCanvas paintCanvas){
+
+  public CommandMouseMode(ClickCoordinates clickCoordinates, UserChoicesImpl appState){
 
     EventCallback eventCommand;
 
     switch (appState.getActiveMouseMode()){
       case DRAW:
-        eventCommand = new OnDraw(clickCoordinates, appState, paintCanvas);
+        eventCommand = new OnDraw(clickCoordinates, appState);
         break;
       case SELECT:
-        eventCommand = new OnSelect(clickCoordinates, paintCanvas);
+        eventCommand = new OnSelect(clickCoordinates);
         break;
       case MOVE:
-        eventCommand = new OnMove(clickCoordinates, paintCanvas);
+        eventCommand = new OnMove(clickCoordinates);
         break;
       default:
         throw new IllegalStateException("Unexpected value: " + appState.getActiveMouseMode());
@@ -40,6 +38,5 @@ public class CommandMouseMode{
     eventCommand.run();
 
   }
-
 
 }

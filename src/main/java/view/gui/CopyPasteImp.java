@@ -5,36 +5,34 @@ import java.util.ArrayList;
 import model.ClickCoordinates;
 import model.ShapeStat;
 import model.interfaces.IShapeStat;
+import view.interfaces.EventCallback;
 
-public class CopyPasteImp {
+public class CopyPasteImp{
 
+  private static final ArrayList<IShapeStat> copied = new ArrayList<>();
 
   public static void copy() {
-    ArrayList<IShapeStat> copiedList = ShapeArrays.getCopied();
-    if(!copiedList.isEmpty()){
-      copiedList.clear();
+    if(!copied.isEmpty()){
+      copied.clear();
     }
 
     ArrayList<IShapeStat> selectedList = new ArrayList<>(ShapeArrays.getSelectedShapeList());
 
     for (IShapeStat s : selectedList){
 
-      copiedList.add(s);
+      copied.add(s);
     }
-
 
   }
 
-  //major problems here
-  //why does it move the shape instead of makes a new one?
-  //IShapeStat is vital here....
   public static void paste(){
 
     ArrayList<IShapeStat> sL = ShapeArrays.getShapeList();
     ArrayList<ArrayList<IShapeStat>> pasteL = ShapeArrays.getPasted();
 
     ArrayList<IShapeStat> pasting = new ArrayList<>();
-    for (IShapeStat shapeStat : ShapeArrays.getCopied()) {
+    for (IShapeStat shapeStat : copied) {
+
 
       ClickCoordinates ss = shapeStat.getClickCoordinates();
 
@@ -49,11 +47,17 @@ public class CopyPasteImp {
         c.endCoordinates(c.getX2()+50, c.getY2()+50);
         s.setClickCoordinates(c.getX1(),c.getY1(),c.getX2(),c.getY2());
       }
+
       sL.add(s);
       pasting.add(s);
 
     }
     pasteL.add(pasting);
 
+    EventCallback eventCommand = new OnPaste();
+    eventCommand.run();
   }
+
+
+
 }

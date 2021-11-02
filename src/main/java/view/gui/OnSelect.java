@@ -1,8 +1,6 @@
 package view.gui;
 
 import controller.ShapeArrays;
-import controller.interfaces.Paste;
-import controller.command.PasteCommand;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,24 +9,22 @@ import java.awt.Stroke;
 import java.util.ArrayList;
 import model.ClickCoordinates;
 import controller.SelectedShapes;
+import model.CurrentCanvas;
 import model.interfaces.IShapeStat;
 import view.interfaces.EventCallback;
 
-public class OnSelect implements EventCallback, Paste {
+public class OnSelect implements EventCallback{
 
   /**Code Created and Written by Gianna Rasmussen
    * Creates a new array of selected shapes
    */
   private final ClickCoordinates clickCoordinates;
-  private final PaintCanvas paintCanvas;
+  private final PaintCanvas paintCanvas = CurrentCanvas.paintCanvas;
 
-  public OnSelect(ClickCoordinates clickCoordinates, PaintCanvas paintCanvas){
+  public OnSelect(ClickCoordinates clickCoordinates){
     clickCoordinates.check();
     this.clickCoordinates = clickCoordinates;
-    this.paintCanvas = paintCanvas;
   }
-
-
 
   @Override
   public void run() {
@@ -42,24 +38,12 @@ public class OnSelect implements EventCallback, Paste {
     //Test 2: outline
     //test();
 
-    PasteCommand.add(this);
+
 
     paintCanvas.repaint();
 
   }
 
-  @Override
-  public void paste() {
-    new PasteCommand().run();
-    if(!ShapeArrays.getCopied().isEmpty()){
-      CopyPasteImp.paste();
-    }
-    else{
-      System.out.println("Nothing to paste");
-    }
-
-    paintCanvas.repaint();
-  }
 
 
   //used to be sure everything that should be selected IS selected

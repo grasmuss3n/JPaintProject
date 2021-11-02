@@ -19,7 +19,7 @@ public class MoveSelected {
 
         IShapeStat s = ShapeArrays.getShapeList().get(i);
 
-        ArrayList<ArrayList<IShapeStat>> sel = ShapeArrays.getSelection();
+        ArrayList<ArrayList<IShapeStat>> sel = ShapeArrays.getMoveSelection();
 
         if(sel.get(sel.size()-1).contains(s)) {
           int x1 = s.getClickCoordinates().getX1();
