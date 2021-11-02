@@ -5,7 +5,10 @@ import model.interfaces.IShapeStat;
 
 public class UndoRedoArrays {
 
-
+  /** Code Created and Written by Gianna Rasmussen
+   * Undo-redo for the different calls.
+   * Uses ShapeArrays.
+   */
   public static void undoShapeList(){
     ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
     ArrayList<IShapeStat> removedShapeList = ShapeArrays.getRemovedShapeList();
@@ -38,9 +41,9 @@ public class UndoRedoArrays {
     s.clear();
 
     if(!selection.isEmpty()){
-      ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getMoveSelection());
-      last = selec.size()-1;
-      s.addAll(selec.get(last));
+      ArrayList<ArrayList<IShapeStat>> select = new ArrayList<>(ShapeArrays.getMoveSelection());
+      last = select.size()-1;
+      s.addAll(select.get(last));
     }
   }
 
@@ -58,9 +61,9 @@ public class UndoRedoArrays {
     selection.add(removedSelection.remove(last));
     ArrayList<IShapeStat> s = ShapeArrays.getSelectedShapeList();
     s.clear();
-    ArrayList<ArrayList<IShapeStat>> selec = new ArrayList<>(ShapeArrays.getMoveSelection());
-    last = selec.size()-1;
-    s.addAll(selec.get(last));
+    ArrayList<ArrayList<IShapeStat>> select = new ArrayList<>(ShapeArrays.getMoveSelection());
+    last = select.size()-1;
+    s.addAll(select.get(last));
 
   }
 

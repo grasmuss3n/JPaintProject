@@ -9,6 +9,7 @@ import model.ClickCoordinates;
 import controller.MoveSelected;
 import model.CurrentCanvas;
 import model.interfaces.IShapeStat;
+import org.jetbrains.annotations.NotNull;
 import view.interfaces.EventCallback;
 
 public class OnMove implements EventCallback, Undoable {
@@ -22,7 +23,7 @@ public class OnMove implements EventCallback, Undoable {
   private final int row;
 
 
-  public OnMove(ClickCoordinates clickCoordinates){
+  public OnMove(@NotNull ClickCoordinates clickCoordinates){
     row = clickCoordinates.getRow();
     col = clickCoordinates.getCol();
   }
@@ -36,8 +37,8 @@ public class OnMove implements EventCallback, Undoable {
     m.add(rc);
 
     ArrayList<IShapeStat> s = new ArrayList<>(ShapeArrays.getSelectedShapeList());
-    ArrayList<ArrayList<IShapeStat>> selec = ShapeArrays.getMoveSelection();
-    selec.add(s);
+    ArrayList<ArrayList<IShapeStat>> select = ShapeArrays.getMoveSelection();
+    select.add(s);
 
     MoveSelected.moveSelected(row, col);
 

@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayList;
 import model.ClickCoordinates;
-import model.ShapeStat;
 import model.interfaces.IShapeStat;
 
 public class SelectedShapes {
@@ -10,6 +9,7 @@ public class SelectedShapes {
   /**Code Created and Written by Gianna Rasmussen
    * Retrieves shapes within selected area and puts them
    * in selected shape list used for moving.
+   * Called by OnSelect
    * @param clickCoordinates: x, y coordinates
    */
 

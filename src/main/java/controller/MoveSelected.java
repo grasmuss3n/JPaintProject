@@ -10,6 +10,7 @@ public class MoveSelected {
    * Is responsible for changing the ShapeList ClickCoordinate stats
    * @param plusX : how much to move left or right
    * @param plusY: how much to move up or down
+   *  Called by OnMove.
    */
 
   public static void moveSelected(int plusX, int plusY){

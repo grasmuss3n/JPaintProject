@@ -7,12 +7,14 @@ import model.ClickCoordinates;
 import model.ShapeShadingType;
 import model.interfaces.IShape;
 import model.interfaces.IShapeStat;
+import org.jetbrains.annotations.NotNull;
 
 public class DrawShape {
 
   /**Code Created and Written by Gianna Rasmussen
    *draws the shapes on the canvas,
    * @param graphics2D, used to draw the shapes on the canvas
+   *
    */
 
 
@@ -42,8 +44,9 @@ public class DrawShape {
     }
   }
 
+  //this part is only used OnDraw thus far.
 
-  public static Graphics2D drawShape(Graphics2D graphics2D, IShapeStat shapeStat) {
+  public static void drawShape(Graphics2D graphics2D, @NotNull IShapeStat shapeStat) {
 
     IShape shape = shapeStat.getShape();
     ClickCoordinates clickCoordinates = shapeStat.getClickCoordinates();
@@ -65,8 +68,6 @@ public class DrawShape {
     if (ShapeArrays.getSelectedShapeList().contains(shapeStat)) {
       shape.select(graphics2D, clickCoordinates);
     }
-
-    return graphics2D;
   }
 
 

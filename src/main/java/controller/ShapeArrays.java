@@ -6,6 +6,11 @@ import model.interfaces.IShapeStat;
 
 public class ShapeArrays {
 
+  /** Code Created and Written by Gianna Rasmussen
+   * Arrays storing shapes and their movements.
+   * Could use other things, this just is a simple
+   * way of organization for me personally.
+   */
 
   private static final ArrayList<IShapeStat> shapeList = new ArrayList<>();
   private static final ArrayList<IShapeStat> removedShapeList = new ArrayList<>();

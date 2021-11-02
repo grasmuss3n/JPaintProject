@@ -9,6 +9,13 @@ import view.interfaces.EventCallback;
 
 public class CopyPasteImp{
 
+  /** Code Created and Written by Gianna Rasmussen
+   * When the copy or paste button is pressed
+   * eventhandlerimp is directed here.
+   * Where it stores a copy
+   * And eventually pastes.
+   */
+
   private static final ArrayList<IShapeStat> copied = new ArrayList<>();
 
   public static void copy() {
@@ -18,10 +25,7 @@ public class CopyPasteImp{
 
     ArrayList<IShapeStat> selectedList = new ArrayList<>(ShapeArrays.getSelectedShapeList());
 
-    for (IShapeStat s : selectedList){
-
-      copied.add(s);
-    }
+    copied.addAll(selectedList);
 
   }
 

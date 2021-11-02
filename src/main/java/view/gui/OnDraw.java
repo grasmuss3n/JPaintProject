@@ -47,8 +47,6 @@ public class OnDraw implements EventCallback, Undoable {
 
     DrawShape.drawShape(CurrentCanvas.paintCanvas.getGraphics2D(), shapeStat);
 
-    //paintCanvas.repaint();
-
   }
 
 

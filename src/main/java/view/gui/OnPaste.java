@@ -9,7 +9,9 @@ import view.interfaces.EventCallback;
 
 public class OnPaste implements EventCallback, Undoable{
 
-
+  /** Code Created and Written by Gianna Rasmussen
+   * This connects paste command to CommandHistory
+   */
   @Override
   public void run() {
     CommandHistory.add(this);
