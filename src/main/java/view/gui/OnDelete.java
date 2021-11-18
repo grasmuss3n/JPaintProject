@@ -43,7 +43,7 @@ public class OnDelete implements  Undoable {
 
   @Override
   public void undo() {
-    Boolean emptyList = ShapeArrays.getDeleted().isEmpty();
+    boolean emptyList = ShapeArrays.getDeleted().isEmpty();
     if(emptyList){
       System.out.println("Nothing to undo");
     }
@@ -56,7 +56,7 @@ public class OnDelete implements  Undoable {
 
   @Override
   public void redo() {
-    Boolean emptyList = ShapeArrays.getRemovedDeleted().isEmpty();
+    boolean emptyList = ShapeArrays.getRemovedDeleted().isEmpty();
     if(emptyList){
       System.out.println("Nothing to undo");
     }
