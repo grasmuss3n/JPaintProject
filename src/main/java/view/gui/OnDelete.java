@@ -7,10 +7,9 @@ import controller.interfaces.Undoable;
 import java.util.ArrayList;
 import model.CurrentCanvas;
 import model.interfaces.IShapeStat;
-import view.interfaces.EventCallback;
 
 
-public class OnDelete implements EventCallback, Undoable {
+public class OnDelete implements  Undoable {
 
   /** Code Created and Written by Gianna Rasmussen
    * This is how things get deleted.
@@ -21,18 +20,21 @@ public class OnDelete implements EventCallback, Undoable {
    */
 
   public static void delete(){
-    EventCallback eventCommand = new OnDelete();
-    eventCommand.run();
+
+    OnDelete del = new OnDelete();
+    del.executeDelete();
   }
 
-  @Override
-  public void run() {
+
+  public void executeDelete(){
     ArrayList<IShapeStat> selectedList = new ArrayList<>(ShapeArrays.getSelectedShapeList());
     ArrayList<ArrayList<IShapeStat>> deletedNow = ShapeArrays.getDeleted();
     deletedNow.add(selectedList);
 
+    int i = deletedNow.size()-1;
+
     ArrayList<IShapeStat> sL = ShapeArrays.getShapeList();
-    sL.removeAll(deletedNow);
+    sL.removeAll(deletedNow.get(i));
 
     CommandHistory.add(this);
     CurrentCanvas.paintCanvas.repaint();
