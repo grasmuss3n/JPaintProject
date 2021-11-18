@@ -27,6 +27,9 @@ public class ShapeArrays {
   private static final ArrayList<ArrayList<IShapeStat>> pasted = new ArrayList<>();
   private static final ArrayList<ArrayList<IShapeStat>> removedPasted = new ArrayList<>();
 
+  private static final ArrayList<ArrayList<IShapeStat>> deleted = new ArrayList<>();
+  private static final ArrayList<ArrayList<IShapeStat>> removedDeleted = new ArrayList<>();
+
 
   public static ArrayList<IShapeStat> getShapeList(){
     return shapeList;
@@ -62,6 +65,14 @@ public class ShapeArrays {
 
   public static ArrayList<ArrayList<IShapeStat>> getRemovedPasted(){
     return removedPasted;
+  }
+
+
+  public static ArrayList<ArrayList<IShapeStat>> getDeleted(){
+    return deleted;
+  }
+  public static ArrayList<ArrayList<IShapeStat>> getRemovedDeleted(){
+    return removedDeleted;
   }
 
   public static int getCol(){

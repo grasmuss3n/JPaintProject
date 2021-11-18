@@ -4,6 +4,7 @@ import controller.command.CommandHistory;
 import model.interfaces.UserChoices;
 import view.EventName;
 import view.gui.CopyPasteImp;
+import view.gui.OnDelete;
 import view.interfaces.UiModule;
 
 /**
@@ -37,11 +38,7 @@ public class EventConnectorImpl implements EventConnector {
         uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
         uiModule.addEvent(EventName.COPY, () -> CopyPasteImp.copy());
         uiModule.addEvent(EventName.PASTE, () -> CopyPasteImp.paste());
-
-
-        //delete
-        //group
-        //ungroup
+        uiModule.addEvent(EventName.DELETE, () -> OnDelete.delete());
     }
 
 

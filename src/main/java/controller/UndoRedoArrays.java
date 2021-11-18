@@ -91,4 +91,29 @@ public class UndoRedoArrays {
   }
 
 
+  public static void undoDelete(){
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+    ArrayList<ArrayList<IShapeStat>> deletedLast = ShapeArrays.getDeleted();
+    ArrayList<ArrayList<IShapeStat>> deletedRemoved = ShapeArrays.getRemovedDeleted();
+
+    int last = deletedLast.size()-1;
+
+    shapeList.addAll(deletedLast.get(last));
+    deletedRemoved.add(deletedLast.remove(last));
+
+  }
+
+  public static void redoDelete(){
+    ArrayList<IShapeStat> shapeList = ShapeArrays.getShapeList();
+    ArrayList<ArrayList<IShapeStat>> deletedLast = ShapeArrays.getDeleted();
+    ArrayList<ArrayList<IShapeStat>> deletedRemoved = ShapeArrays.getRemovedDeleted();
+
+    int last = deletedRemoved.size()-1;
+
+    shapeList.removeAll(deletedRemoved.get(last));
+    deletedLast.add(deletedRemoved.remove(last));
+
+  }
+
+
 }
